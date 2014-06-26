@@ -1,0 +1,8 @@
+### hk_translate v0.7: get letter combinations from a .txt file, reducing .py file size to 8 lines ###
+import re
+from letter_combinations import a_list
+translation_list = a_list
+word = raw_input("Enter text: ")
+for letter_comb in translation_list.keys():
+    word = re.sub(letter_comb, translation_list[letter_comb], word)
+print word

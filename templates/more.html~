@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+  <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+    <dl>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">HK Translate</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/">Translate</a></li>
+              <li><a href="/about">What is this?</a></li>
+              <li><a href="/contact">Who made this?</a></li>
+	      <li class="active"><a href="#">More accents</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Accents <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Singlish</a></li>
+                  <li><a href="#">Engrish</a></li>
+                  <li><a href="#">Aww... Crickey!</a></li>
+              </ul>
+            </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+        <div class="jumbotron">
+      <div class="container">
+        <br/><center><p>add a dropdown list of accents<br/>(Do later, need Javascript for that)</p></center>
+      </div>
+    </div>
+
+    </dl>
+  </form>
+{% endblock %}

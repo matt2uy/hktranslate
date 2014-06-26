@@ -1,0 +1,20 @@
+# add file data, like in scorecard.py
+
+import re
+translation_list = {'the' : 'da',
+                    'tha' : 'da',
+                    'thi' : 'fi',
+                    'er' : 'ah',
+                    'v' : 'w',
+                    'r' : 'w',
+                    'at' : 'ah',
+                    'tr' : 'ch',
+                    'ch' : 'tr',
+                    'al' : 'ow',
+                    'll' : 'ow',
+                    'or' : 'oe',
+                    'lo ' : 'wow'} # this one does word enedings
+word = raw_input("Enter text: ")
+for letter_comb in translation_list.keys():
+    word = re.sub(letter_comb, translation_list[letter_comb], word)
+print word

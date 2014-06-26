@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block body %}
+  <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+    <dl>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">HK Translate</a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Translate</a></li>
+              <li><a href="/about">What is this?</a></li>
+              <li><a href="/contact">Who made this?</a></li>
+	      <li><a href="/more">More accents</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+      <div class="container">
+
+        <br/>
+        <br/>
+        <br/>
+
+        <div class="row">
+  	  <div class="col-md-6">
+	    <div class="form-group">
+	      <label class="control-label" for="english_text"><h3>Enter Some English:</h3></label>
+              <dd><textarea name=text class="form-control" rows="4" id="english_text" padding="4px"></textarea>
+	      <dd><br/><button type="submit" class="btn btn-primary">Translate</button> 
+            </div>
+          </div>
+
+
+          <div class="col-md-6">
+	    <label class="control-label" for="engwish_text"><h3>Engwish:</h3></label>
+            <div class="well well-sm" id="engwish_text">
+              {{word|safe}}
+             </div>
+          </div>
+        </div>
+
+      
+
+
+      </div><!-- /.container -->
+
+    </dl>
+  </form>
+{% endblock %}
