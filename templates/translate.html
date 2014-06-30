@@ -37,21 +37,21 @@
         <br/>
 
         <div class="row">
-  	  <div class="col-md-6">
-	    <div class="form-group">
-	      <label class="control-label" for="english_text"><h3>Enter Some English:</h3></label>
+      <div class="col-md-6">
+      <div class="form-group">
+        <label class="control-label" for="english_text"><h3>Enter Some English:</h3></label>
               <dd><textarea name=text class="form-control" rows="4" id="english_text" padding="4px"></textarea>
-	      <dd><br/><button type="submit" class="btn btn-primary">Translate</button> 
+        <dd><br/><button type="submit" class="btn btn-primary">Translate</button> 
             </div>
           </div>
 
 
           <div class="col-md-6">
-	    <label class="control-label" for="engwish_text"><h3>Engwish:</h3></label>
+      <label class="control-label" for="engwish_text"><h3>Engwish:</h3></label>
             <div class="well well-sm" id="engwish_text">
               {{word|safe}}
              </div>
-             <audio src="/static/sound/music.mp3" controls="play"/>
+             <audio src="/static/sound/{{audio_file}}" controls="play"/>
           </div>
         </div>
 

@@ -7,6 +7,17 @@ from flask import Flask, request, session, g, redirect, url_for, \
 
 from contextlib import closing
 
+from pydub import AudioSegment
+
+song1 = AudioSegment.from_mp3("static/sound/one.mp3")
+song2 = AudioSegment.from_mp3("static/sound/two.mp3")
+audio = song1+song2
+print "wait..."
+# save the result
+audio.export("static/sound/audio_processed.mp3", format="mp3")
+print "done"
+
+
 # configuration
 
 # application:
@@ -26,7 +37,7 @@ def add_entry():
     word = request.form['text']
     for letter_comb in translation_list.keys():
         word = re.sub(letter_comb, translation_list[letter_comb], word)
-    return render_template('translate.html', word=word)
+    return render_template('translate.html', word=word, audio_file='audio_processed.mp3')
 
 @app.route('/about')
 def about():
@@ -34,11 +45,11 @@ def about():
 
 @app.route('/contact')
 def contact():
-	return render_template('contact.html')
+    return render_template('contact.html')
 
 @app.route('/more')
 def more():
-	return render_template('more.html')
+    return render_template('more.html')
     
 if __name__ == '__main__':
     app.run()
