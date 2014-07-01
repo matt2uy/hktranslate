@@ -23,36 +23,48 @@ def add_entry():
     import re
     from letter_combinations import hk_list
     translation_list = hk_list
-    word = request.form['text'] # get text from form
+    raw_english = request.form['text'] # get text from form
+    word = raw_english
     # replace letter combs with ones from hk_list
     for letter_comb in translation_list.keys():
         word = re.sub(letter_comb, translation_list[letter_comb], word)
 
-
-    # convert text to .mp3 urls, in order, separated by spaces
-    from letter_combinations import audio_list
-    all_audio = "you are the"
-    for letter_comb in audio_list.keys():
-        all_audio = re.sub(letter_comb, audio_list[letter_comb], all_audio)
-        
-    print all_audio
-
-    # assign .mp3 urls to
-    print all_audio.split()
-
-    # combine sound files
     from pydub import AudioSegment
-
-    you = AudioSegment.from_mp3("static/sound/you.mp3")
-    are = AudioSegment.from_mp3("static/sound/are.mp3")
-    the = AudioSegment.from_mp3("static/sound/the.mp3")
-    audio = you+are+the
-    print "wait..."
-    # save the result
-    audio.export("static/sound/audio_processed.mp3", format="mp3")
-    print "done"
+    
+    def text_to_speech():
+        input_text = raw_english
+        # convert text to .mp3 urls, in order, separated by spaces
+        from letter_combinations import audio_list
+        for letter_comb in audio_list.keys():
+            input_text = re.sub(letter_comb, audio_list[letter_comb], input_text)
 
 
+        mp3list = [] # list of filenames # not sure how to initalize, so I did this.
+
+        # assign .mp3 urls to list
+        for word in input_text.split():
+            mp3list.append(word)
+
+        # assign .mp3 urls in list to actual mp3 files
+        #for pronounciation in mp3list:
+        audiofile = [] # list of .mp3 files
+        for idx, val in enumerate(mp3list):
+            print idx,val
+            audiofile.append(AudioSegment.from_mp3(mp3list[idx]))
+
+        # combine .mp3 files to make a 'sentence'
+        for idx, val in enumerate(audiofile):
+            if idx == 0:                    # because I can't do sentence = sentence + audiofile[idx] right away (sentence is undefined, and can't defien it with NULL either (supposedly different type than the .mp3 files))
+                sentence = audiofile[0]
+            else:
+                sentence = sentence + audiofile[idx]
+
+        #sentence = audiofile[0] + audiofile[1] + audiofile[2]
+        print "wait..."
+        # save the result
+        sentence.export("static/sound/audio_processed.mp3", format="mp3")
+        print "done"
+    text_to_speech();
 
 
     return render_template('translate.html', word=word, audio_file='audio_processed.mp3')
