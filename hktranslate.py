@@ -22,26 +22,45 @@ def translate():
 def add_entry():   
     import re
     from letter_combinations import hk_list
+
     translation_list = hk_list
     raw_english = request.form['text']
     word = raw_english
     for letter_comb in translation_list.keys():
         word = re.sub(letter_comb, translation_list[letter_comb], word)
-
-    from pydub import AudioSegment
     
     def text_to_speech():
-        input_text = raw_english
-        # convert text to .mp3 urls, in order, separated by spaces
+        from pydub import AudioSegment
         from letter_combinations import audio_list 
+
+        input_text = raw_english # input_text turns into a plain-text string of urls
+
+        # convert text to .mp3 urls, in order, separated by spaces
         for letter_comb in audio_list.keys():
-            input_text = re.sub(letter_comb, audio_list[letter_comb], input_text)
+            input_text = re.sub(letter_comb, "["+audio_list[letter_comb]+"]", input_text)
+
+        # take away characters outside of brackets, then take away brackets, then add spaces in between urls
+        def remove_words_without_audio(raw_english):
+           output = []
+           record = False
+           for char in raw_english:
+              if char == "]":
+                 output.append(" ")
+                 record = False
+              if record == True:
+                 output.append(char)
+              if char == "[":
+                 record = True
+           return ''.join(output)
+
+        input_text = remove_words_without_audio(input_text)
 
         mp3list = [] # list of filenames # not sure how to initalize, so I did this.
 
         # assign .mp3 urls to list
         for word in input_text.split():
             mp3list.append(word)
+
         # assign .mp3 urls in list to actual mp3 files
         #for pronounciation in mp3list:
         audiofile = [] # list of .mp3 files
@@ -64,9 +83,6 @@ def add_entry():
         print "done"
 
     text_to_speech()
-
-
-
 
     return render_template('translate.html', word=word, audio_file='audio_processed.mp3')
 

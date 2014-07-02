@@ -30,5 +30,5 @@ audio_list = {
 	'you' : "static/sound/you.mp3",
 	'are' : "static/sound/are.mp3",
 	'the' : "static/sound/the.mp3"
-	
+
 }
