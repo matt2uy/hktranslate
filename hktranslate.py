@@ -23,9 +23,8 @@ def add_entry():
     import re
     from letter_combinations import hk_list
     translation_list = hk_list
-    raw_english = request.form['text'] # get text from form
+    raw_english = request.form['text']
     word = raw_english
-    # replace letter combs with ones from hk_list
     for letter_comb in translation_list.keys():
         word = re.sub(letter_comb, translation_list[letter_comb], word)
 
@@ -34,17 +33,15 @@ def add_entry():
     def text_to_speech():
         input_text = raw_english
         # convert text to .mp3 urls, in order, separated by spaces
-        from letter_combinations import audio_list
+        from letter_combinations import audio_list 
         for letter_comb in audio_list.keys():
             input_text = re.sub(letter_comb, audio_list[letter_comb], input_text)
-
 
         mp3list = [] # list of filenames # not sure how to initalize, so I did this.
 
         # assign .mp3 urls to list
         for word in input_text.split():
             mp3list.append(word)
-
         # assign .mp3 urls in list to actual mp3 files
         #for pronounciation in mp3list:
         audiofile = [] # list of .mp3 files
@@ -52,6 +49,7 @@ def add_entry():
             print idx,val
             audiofile.append(AudioSegment.from_mp3(mp3list[idx]))
 
+        
         # combine .mp3 files to make a 'sentence'
         for idx, val in enumerate(audiofile):
             if idx == 0:                    # because I can't do sentence = sentence + audiofile[idx] right away (sentence is undefined, and can't defien it with NULL either (supposedly different type than the .mp3 files))
@@ -64,7 +62,10 @@ def add_entry():
         # save the result
         sentence.export("static/sound/audio_processed.mp3", format="mp3")
         print "done"
-    text_to_speech();
+
+    text_to_speech()
+
+
 
 
     return render_template('translate.html', word=word, audio_file='audio_processed.mp3')
