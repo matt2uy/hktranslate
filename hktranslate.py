@@ -37,7 +37,7 @@ def add_entry():
 
         # convert text to .mp3 urls, in order, separated by spaces
         for letter_comb in audio_list.keys():
-            input_text = re.sub(letter_comb, "["+audio_list[letter_comb]+"]", input_text)
+            input_text = "[static/sound/blank.mp3]"+ re.sub(letter_comb, "["+audio_list[letter_comb]+"]", input_text)
 
         # take away characters outside of brackets, then take away brackets, then add spaces in between urls
         def remove_words_without_audio(raw_english):
