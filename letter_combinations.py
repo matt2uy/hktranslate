@@ -1,6 +1,6 @@
 sing_list = {"." : ","}
           
-hk_list = {'th' : 'f',
+hk_list = {
 		  'the ' : 'dah ',
 	      'that ' : 'dat ', 
 		  'ere' : 'ah ',
@@ -29,6 +29,20 @@ hk_list = {'th' : 'f',
 audio_list = {
 	'you' : "static/sound/you.mp3",
 	'are' : "static/sound/are.mp3",
-	'the' : "static/sound/the.mp3"
+	'the' : "static/sound/the.mp3",
+	'be' : "static/sound/be.mp3",
+	'to' : "static/sound/to.mp3",
+	'yao' : "static/sound/yao.mp3",
+	'ming' : "static/sound/ming.mp3",
+
+	'of' : "static/sound/of.mp3",
+	'and' : "static/sound/and.mp3",
+	#' a ' : "static/sound/a.mp3",
+	#'that' : "static/sound/that.mp3",
+	#'have' : "static/sound/have.mp3"
+	#'i' : "static/sound/i.mp3"
+	# it, for, not, on, 
+
+
 
 }

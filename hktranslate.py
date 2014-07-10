@@ -1,6 +1,4 @@
 # translate user input and put a hong kong accent on it
-
-# all the imports
 import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template
@@ -25,15 +23,15 @@ def add_entry():
 
     translation_list = hk_list
     raw_english = request.form['text']
-    word = raw_english
-    for letter_comb in translation_list.keys():
-        word = re.sub(letter_comb, translation_list[letter_comb], word)
     
-    def text_to_speech():
+    # add the accent to the text
+    accented_english = raw_english
+    for letter_comb in translation_list.keys():
+      accented_english = re.sub(letter_comb, translation_list[letter_comb], accented_english)
+    
+    def text_to_speech(input_text):
         from pydub import AudioSegment
         from letter_combinations import audio_list 
-
-        input_text = raw_english # input_text turns into a plain-text string of urls
 
         # convert text to .mp3 urls, in order, separated by spaces
         for letter_comb in audio_list.keys():
@@ -81,10 +79,9 @@ def add_entry():
         # save the result
         sentence.export("static/sound/audio_processed.mp3", format="mp3")
         print "done"
+    text_to_speech(raw_english) # updates audio_processed.mp3
 
-    text_to_speech()
-
-    return render_template('translate.html', word=word, audio_file='audio_processed.mp3')
+    return render_template('translate.html', word=accented_english, audio_file='audio_processed.mp3')
 
 @app.route('/about')
 def about():
