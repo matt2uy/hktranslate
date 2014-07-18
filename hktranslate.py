@@ -73,6 +73,7 @@ def add_entry():
             syllable = '-'.join(syllable)
             text = text + syllable + "-"
 
+          text = "-" + text
           print "text: ", text
           return text
 
@@ -90,9 +91,9 @@ def add_entry():
 
 
         # convert text to .wav urls, in order, separated by spaces
-        input_text = input_text + "[static/sound/blank.wav]"
+        input_text = input_text + "-[static/sound/blank.wav]-"
         for letter_comb in hk_audio_phonemes.keys():
-            input_text = re.sub(letter_comb, "["+hk_audio_phonemes[letter_comb]+"]", input_text)
+            input_text = re.sub(letter_comb, "-["+hk_audio_phonemes[letter_comb]+"]-", input_text)
             
         print input_text
         # take away characters outside of brackets, then take away brackets, then add spaces in between urls
@@ -131,6 +132,11 @@ def add_entry():
                 sentence = audiofile[0]
             else:
                 sentence = sentence + audiofile[idx]
+
+
+
+
+
 
         #sentence = audiofile[0] + audiofile[1] + audiofile[2]
         print "wait..."
