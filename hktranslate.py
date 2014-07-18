@@ -20,6 +20,7 @@ def translate():
 def add_entry():   
     import re
     from nltk.corpus import cmudict
+    from phoneme_dict import hk_text_phonemes
     raw_english = request.form['text']
     
     raw_english = raw_english.split()
@@ -35,7 +36,6 @@ def add_entry():
           text = text + syllable + " "
         return text
     def phoneme_to_accent(text):
-        from phoneme_dict import hk_text_phonemes
         for phoneme in text:
           for phoneme in hk_text_phonemes.keys():
             text = re.sub(phoneme, hk_text_phonemes[phoneme], text)
@@ -70,8 +70,10 @@ def add_entry():
             syllable = phoneme_dict[word][0]
             # there should be a counter somewhere
             print syllable
-            syllable = ' '.join(syllable)
-            text = text + syllable + " "
+            syllable = '-'.join(syllable)
+            text = text + syllable + "-"
+
+          print "text: ", text
           return text
 
         def format_text_2(text):
@@ -86,11 +88,13 @@ def add_entry():
         print "phonemes:", input_text
         input_text = format_text_2(input_text)
 
+
         # convert text to .wav urls, in order, separated by spaces
         input_text = input_text + "[static/sound/blank.wav]"
         for letter_comb in hk_audio_phonemes.keys():
             input_text = re.sub(letter_comb, "["+hk_audio_phonemes[letter_comb]+"]", input_text)
-          
+            
+        print input_text
         # take away characters outside of brackets, then take away brackets, then add spaces in between urls
         def remove_words_without_audio(raw_english):
             output = []
