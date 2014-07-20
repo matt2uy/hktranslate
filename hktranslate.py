@@ -59,7 +59,8 @@ def add_entry():
     print accented_english
     def text_to_speech(input_text):
         from pydub import AudioSegment
-        from phoneme_dict import hk_audio_phonemes
+        from phoneme_dict import hk_audio_phoneme_combos
+        from phoneme_dict import hk_audio_solo_phonemes
         # turn plain text into parseable phonemes:
         input_text = " ".join(input_text)
 
@@ -76,7 +77,6 @@ def add_entry():
           text = "-" + text
           print "text: ", text
           return text
-
         def format_text_2(text):
           # remove numbers (notation for pronounciation stress level)
           text = ''.join(i for i in text if not i.isdigit())
@@ -92,9 +92,14 @@ def add_entry():
 
         # convert text to .wav urls, in order, separated by spaces
         input_text = input_text + "-[static/sound/blank.wav]-"
-        for letter_comb in hk_audio_phonemes.keys():
-            input_text = re.sub(letter_comb, "-["+hk_audio_phonemes[letter_comb]+"]-", input_text)
-            
+        # sub in phoneme combninations first
+        for phoneme in hk_audio_phoneme_combos.keys():
+            input_text = re.sub(phoneme, "-["+hk_audio_phoneme_combos[phoneme]+"]-", input_text)
+
+        # sub in individual phonemes after
+        for phoneme in hk_audio_solo_phonemes.keys():
+            input_text = re.sub(phoneme, "-["+hk_audio_solo_phonemes[phoneme]+"]-", input_text)
+
         print input_text
         # take away characters outside of brackets, then take away brackets, then add spaces in between urls
         def remove_words_without_audio(raw_english):

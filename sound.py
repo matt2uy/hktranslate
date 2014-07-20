@@ -1,6 +1,6 @@
 from pydub import AudioSegment
 
-address = "static/sound/ong1.wav"
+address = "static/sound/ing1.wav"
 
 sentence = AudioSegment.from_wav(address)
 
@@ -9,6 +9,6 @@ sentence = AudioSegment.from_wav(address)
 #sentence = sentence[:500]
 
 # save last 0.5 secs
-sentence = sentence[400:]
+sentence = sentence[500:]
 
 sentence.export(address, format="wav")
