@@ -21,17 +21,19 @@ def add_entry():
     import re
     from nltk.corpus import cmudict
     from phoneme_dict import hk_text_phonemes
+
     raw_english = request.form['text']
-    
+    print ''
+    print '-- Begin translation --'
+    print ''
+    print "Raw English: ", raw_english
     raw_english = raw_english.split()
 
     def text_to_phoneme(text):
         phoneme_dict = cmudict.dict()
         text = ""
         for word in raw_english:
-          syllable = phoneme_dict[word][0]
-          # there should be a counter somewhere
-          print syllable
+          syllable = phoneme_dict[word][0] # (selects first instance of phonemic conversion only) there should be a counter somewhere
           syllable = ''.join(syllable)
           text = text + syllable + " "
         return text
@@ -50,13 +52,15 @@ def add_entry():
         return text
 
     def add_accent(raw_english):
-     
       accented_english = text_to_phoneme(raw_english)
       accented_english = phoneme_to_accent(accented_english)
       accented_english = format_text(accented_english)
+     
       return accented_english
+
     accented_english = add_accent(raw_english)
-    print accented_english
+    print "Add text accent: ", accented_english
+    
     def text_to_speech(input_text):
         from pydub import AudioSegment
         from phoneme_dict import hk_audio_phoneme_combos
@@ -70,12 +74,10 @@ def add_entry():
           for word in raw_english:
             syllable = phoneme_dict[word][0]
             # there should be a counter somewhere
-            print syllable
             syllable = '-'.join(syllable)
             text = text + syllable + "-"
 
           text = "-" + text
-          print "text: ", text
           return text
         def format_text_2(text):
           # remove numbers (notation for pronounciation stress level)
@@ -86,7 +88,7 @@ def add_entry():
 
 
         input_text = text_to_phoneme_2(input_text)
-        print "phonemes:", input_text
+        print "Phonemized version:", input_text
         input_text = format_text_2(input_text)
 
 
@@ -100,7 +102,6 @@ def add_entry():
         for phoneme in hk_audio_solo_phonemes.keys():
             input_text = re.sub(phoneme, "-["+hk_audio_solo_phonemes[phoneme]+"]-", input_text)
 
-        print input_text
         # take away characters outside of brackets, then take away brackets, then add spaces in between urls
         def remove_words_without_audio(raw_english):
             output = []
@@ -126,10 +127,9 @@ def add_entry():
         # assign .wav urls in list to actual wav files
         #for pronounciation in wavlist:
         audiofile = [] # list of .wav files
+        print "Sound files:"
         for idx, val in enumerate(wavlist):
-
-            
-            print idx, val
+            print "|", idx, "|", val
             audiofile.append(AudioSegment.from_wav(wavlist[idx]))
         # combine .wav files to make a 'sentence'
         for idx, val in enumerate(audiofile):
@@ -144,13 +144,17 @@ def add_entry():
 
 
         #sentence = audiofile[0] + audiofile[1] + audiofile[2]
-        print "wait..."
+        print "Processing audio file..."
         # save the result
         sentence.export("static/sound/audio_processed.wav", format="wav")
-        print "done"
+        print "Done!"
+        print ''
+        print '-- Done translation --'
+        print ''
     ''.join(raw_english)
+
     text_to_speech(raw_english) # updates audio_processed.wav
-    print "hi"
+
     return render_template('translate.html', word=accented_english, audio_file='audio_processed.wav')
 
 @app.route('/about')
