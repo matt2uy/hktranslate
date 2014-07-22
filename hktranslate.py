@@ -65,6 +65,7 @@ def add_entry():
         from pydub import AudioSegment
         from phoneme_dict import hk_audio_phoneme_combos
         from phoneme_dict import hk_audio_solo_phonemes
+        
         # turn plain text into parseable phonemes:
         input_text = " ".join(input_text)
 
@@ -86,11 +87,9 @@ def add_entry():
           text = ' '.join(word[0].upper() + word[1:] for word in text.split())
           return text
 
-
         input_text = text_to_phoneme_2(input_text)
         print "Phonemized version:", input_text
         input_text = format_text_2(input_text)
-
 
         # convert text to .wav urls, in order, separated by spaces
         input_text = input_text + "-[static/sound/blank.wav]-"
@@ -124,13 +123,35 @@ def add_entry():
         for word in input_text.split():
             wavlist.append(word)
 
+        ###### Actual audio processsing #######
+        print "Processing audio file..."
         # assign .wav urls in list to actual wav files
-        #for pronounciation in wavlist:
         audiofile = [] # list of .wav files
         print "Sound files:"
+        shorten_next_audio = False
         for idx, val in enumerate(wavlist):
             print "|", idx, "|", val
-            audiofile.append(AudioSegment.from_wav(wavlist[idx]))
+
+            current_phoneme = AudioSegment.from_wav(wavlist[idx]) 
+
+
+            if shorten_next_audio == True:
+                current_phoneme = current_phoneme[200:]
+                print "Shortened start of audio"
+                shorten_next_audio = False
+
+                      # digraph prefix                               # digraph suffix   
+            if val == 'static/sound/ba1.wav' and wavlist[idx+1] == 'static/sound/ang1.wav':
+ 
+                print 'shortened end of audio'
+                # save first 0.5 secs
+                current_phoneme = current_phoneme[:500]
+                shorten_next_audio = True
+            audiofile.append(current_phoneme)
+
+
+
+
         # combine .wav files to make a 'sentence'
         for idx, val in enumerate(audiofile):
             if idx == 0:                    # because I can't do sentence = sentence + audiofile[idx] right away (sentence is undefined, and can't defien it with NULL either (supposedly different type than the .wav files))
@@ -138,13 +159,6 @@ def add_entry():
             else:
                 sentence = sentence + audiofile[idx]
 
-
-
-
-
-
-        #sentence = audiofile[0] + audiofile[1] + audiofile[2]
-        print "Processing audio file..."
         # save the result
         sentence.export("static/sound/audio_processed.wav", format="wav")
         print "Done!"
@@ -152,7 +166,6 @@ def add_entry():
         print '-- Done translation --'
         print ''
     ''.join(raw_english)
-
     text_to_speech(raw_english) # updates audio_processed.wav
 
     return render_template('translate.html', word=accented_english, audio_file='audio_processed.wav')
