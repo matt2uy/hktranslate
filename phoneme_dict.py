@@ -42,13 +42,14 @@ hk_text_phonemes = {
 
 hk_audio_phoneme_combos = {
         # consonant -> vowel
+        "-P-AE-" : 'static/sound/pa1.wav',
         "-B-AE-" : 'static/sound/ba1.wav',
         "-P-IH-" : 'static/sound/pi1.wav',
 
         # vowel -> consonant
         "-IH-NG-" : 'static/sound/ing1.wav',
         '-AO-NG-' : 'static/sound/ong1.wav',
-        '-AE-NG-' : 'static/sound/ang1.wav',
+        #'-AE-NG-' : 'static/sound/ang1.wav',
         }
 
 hk_audio_solo_phonemes = {

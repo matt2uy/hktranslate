@@ -88,19 +88,20 @@ def add_entry():
           return text
 
         input_text = text_to_phoneme_2(input_text)
-        print "Phonemized version:", input_text
         input_text = format_text_2(input_text)
 
+        print "Phonemized version:", input_text
         # convert text to .wav urls, in order, separated by spaces
         input_text = input_text + "-[static/sound/blank.wav]-"
         # sub in phoneme combninations first
         for phoneme in hk_audio_phoneme_combos.keys():
             input_text = re.sub(phoneme, "-["+hk_audio_phoneme_combos[phoneme]+"]-", input_text)
-
+        
         # sub in individual phonemes after
         for phoneme in hk_audio_solo_phonemes.keys():
             input_text = re.sub(phoneme, "-["+hk_audio_solo_phonemes[phoneme]+"]-", input_text)
 
+        print "audio file formatted: ", input_text
         # take away characters outside of brackets, then take away brackets, then add spaces in between urls
         def remove_words_without_audio(raw_english):
             output = []
@@ -136,17 +137,27 @@ def add_entry():
 
 
             if shorten_next_audio == True:
-                current_phoneme = current_phoneme[200:]
+                print "length before", current_phoneme.duration_seconds*1000
+                audio_length = current_phoneme.duration_seconds*1000*0.3
+                current_phoneme = current_phoneme[audio_length:]
+                print "length after", current_phoneme.duration_seconds*1000
+                
                 print "Shortened start of audio"
                 shorten_next_audio = False
 
                       # digraph prefix                               # digraph suffix   
-            if val == 'static/sound/ba1.wav' and wavlist[idx+1] == 'static/sound/ang1.wav':
+            if val == 'static/sound/pa1.wav' and wavlist[idx+1] == 'static/sound/ang1.wav':
  
                 print 'shortened end of audio'
                 # save first 0.5 secs
-                current_phoneme = current_phoneme[:500]
+                print "length before", current_phoneme.duration_seconds*1000
+                audio_length = current_phoneme.duration_seconds*1000*0.6
+                current_phoneme = current_phoneme[:audio_length]
+                print "length after", current_phoneme.duration_seconds*1000
                 shorten_next_audio = True
+
+
+
             audiofile.append(current_phoneme)
 
 
