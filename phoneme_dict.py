@@ -45,11 +45,11 @@ hk_audio_phoneme_combos = {
         "-P-AE-" : 'static/sound/pa1.wav',
         "-B-AE-" : 'static/sound/ba1.wav',
         "-P-IH-" : 'static/sound/pi1.wav',
-
+        "-G-AE-" : 'static/sound/ga1.wav',
         # vowel -> consonant
         "-IH-NG-" : 'static/sound/ing1.wav',
         '-AO-NG-' : 'static/sound/ong1.wav',
-        #'-AE-NG-' : 'static/sound/ang1.wav',
+        '-AE-NG-' : 'static/sound/ang1.wav',
         }
 
 hk_audio_solo_phonemes = {
@@ -67,7 +67,7 @@ hk_audio_solo_phonemes = {
         '-ER-' : 'static/sound/er1.wav',#'ur', #hurt      HH ER T
         '-EY-' : 'static/sound/ei1.wav',#'ey', #ate       EY T
         '-F-' : 'static/sound/fa1.wav',#'eh', #fee        F IY
-        '-G-' : 'static/sound/ga1.wav',#'g', #green       G R IY N
+        '-G-' : 'static/sound/g1.wav',#'g', #green       G R IY N
         '-HH-' : 'static/sound/ha1.wav',#'h', #he HH IY
         '-IH-' : 'static/sound/ei1.wav',#'i', #it IH T
         '-IY-' : 'static/sound/ei1.wav',#'eh', #eat       IY T
