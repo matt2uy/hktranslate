@@ -84,17 +84,26 @@ def add_entry():
           print "Phonemized version:", text
           return text
         def text_to_phoneme_filename(input_text):
-            from phoneme_dict import hk_audio_phoneme_combos
+            from phoneme_dict import hk_audio_phoneme_combos1
+            from phoneme_dict import hk_audio_phoneme_combos2
             from phoneme_dict import hk_audio_solo_phonemes
             # convert text to .wav urls, in order, separated by spaces
             input_text = input_text + "-[static/sound/blank.wav]-"
-            # sub in phoneme combninations first
-            for phoneme in hk_audio_phoneme_combos.keys():
-                 input_text = re.sub(phoneme, "-["+hk_audio_phoneme_combos[phoneme]+"]-", input_text)
-                
-                # sub in individual phonemes after
+            # sub in phoneme combo endings first
+            for phoneme in hk_audio_phoneme_combos1.keys():
+                input_text = re.sub(phoneme, hk_audio_phoneme_combos1[phoneme], input_text)
+            print "STAGE ONE (suffixes):"
+            print input_text   
+            # sub in phoneme combo beginnings second
+            for phoneme in hk_audio_phoneme_combos2.keys():
+                input_text = re.sub(phoneme, hk_audio_phoneme_combos2[phoneme], input_text)
+            print "STAGE TWO (prefixes):"
+            print input_text
+            # sub in individual phonemes last
             for phoneme in hk_audio_solo_phonemes.keys():
-                input_text = re.sub(phoneme, "-["+hk_audio_solo_phonemes[phoneme]+"]-", input_text)
+                input_text = re.sub(phoneme, hk_audio_solo_phonemes[phoneme], input_text)
+
+            print "STAGE THREE (indiv.):"
             print "audio file formatted: ", input_text
             return input_text
         def remove_words_without_audio(raw_english):
@@ -131,7 +140,7 @@ def add_entry():
 
                 current_phoneme = AudioSegment.from_wav(wavlist[idx]) 
 
-                digraph_prefix = ['static/sound/pa1.wav',
+                '''digraph_prefix = ['static/sound/pa1.wav',
                                   'static/sound/ba1.wav',
                                   'static/sound/ga1.wav',
                                   'static/sound/pi1.wav']
@@ -165,9 +174,8 @@ def add_entry():
                             print "length after", current_phoneme.duration_seconds*1000
                             
                             print "Shortened start of audio"
-                            shorten_next_audio = False
-
-
+                            shorten_next_audio = False'''
+                                            
                 audiofile.append(current_phoneme)
             return audiofile
         def combine_audio_file_list(audiofile):
