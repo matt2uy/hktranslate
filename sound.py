@@ -1,6 +1,6 @@
 from pydub import AudioSegment
 
-address = "static/sound/wo1.wav"
+address = "static/sound/re1.wav"
 
 sentence = AudioSegment.from_wav(address)
 
