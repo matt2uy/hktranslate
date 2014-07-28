@@ -28,6 +28,7 @@ def add_entry():
         return raw_english
     def add_accent(raw_english):
         from phoneme_dict import hk_text_phonemes
+
         def opening_message():
             print ''
             print '-- Begin translation --'
@@ -84,21 +85,23 @@ def add_entry():
           print "Phonemized version:", text
           return text
         def text_to_phoneme_filename(input_text):
-            from phoneme_dict import hk_audio_phoneme_combos1
-            from phoneme_dict import hk_audio_phoneme_combos2
+            #from phoneme_dict import hk_audio_phoneme_combo_endings
+            #from phoneme_dict import hk_audio_phoneme_combo_beginnings
             from phoneme_dict import hk_audio_solo_phonemes
             # convert text to .wav urls, in order, separated by spaces
-            input_text = input_text + "-[static/sound/blank.wav]-"
+            input_text = input_text + "-[static/speech/misc/blank.wav]-"
             # sub in phoneme combo endings first
-            for phoneme in hk_audio_phoneme_combos1.keys():
+            """
+            for phoneme in hk_audio_phoneme_combo_endings.keys():
                 input_text = re.sub(phoneme, hk_audio_phoneme_combos1[phoneme], input_text)
             print "STAGE ONE (suffixes):"
             print input_text   
             # sub in phoneme combo beginnings second
-            for phoneme in hk_audio_phoneme_combos2.keys():
+            for phoneme in hk_audio_phoneme_combo_beginnings.keys():
                 input_text = re.sub(phoneme, hk_audio_phoneme_combos2[phoneme], input_text)
             print "STAGE TWO (prefixes):"
             print input_text
+            """
             # sub in individual phonemes last
             for phoneme in hk_audio_solo_phonemes.keys():
                 input_text = re.sub(phoneme, hk_audio_solo_phonemes[phoneme], input_text)
@@ -188,7 +191,7 @@ def add_entry():
             return sentence
         def save_audio_file():
             # save the result
-            sentence.export("static/sound/audio_processed.wav", format="wav")
+            sentence.export("static/speech/misc/audio_processed.wav", format="wav")
             print "Done!"
             print ''
             print '-- Done translation --'
@@ -196,6 +199,7 @@ def add_entry():
 
         input_text = text_to_phoneme_2(input_text)
         input_text = format_text_2(input_text)
+        print 'here'
         input_text = text_to_phoneme_filename(input_text)
         input_text = remove_words_without_audio(input_text)
         wavlist = filenames_to_list(input_text)
