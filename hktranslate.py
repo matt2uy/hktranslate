@@ -53,7 +53,7 @@ def add_entry():
             # convert all to lowercase
             text = text.lower()
             # capitalize first letter of each word
-            text = ' '.join(word[0].upper() + word[1:] for word in text.split())
+            text = ''.join(text[0].upper() + text[1:])
             return text
 
         opening_message()
@@ -72,10 +72,9 @@ def add_entry():
           phoneme_dict = cmudict.dict()
           text = ""
           for word in raw_english:
-            syllable = phoneme_dict[word][0]
-            # there should be a counter somewhere
+            syllable = phoneme_dict[word][0] # there should be a counter somewhere for each phonemic version
             syllable = '-'.join(syllable)
-            text = text + syllable + "-"
+            text = text + syllable + "- "
 
           text = "-" + text
           return text
@@ -85,23 +84,32 @@ def add_entry():
           print "Phonemized version:", text
           return text
         def text_to_phoneme_filename(input_text):
+            from phoneme_dict import separate_words
             #from phoneme_dict import hk_audio_phoneme_combo_endings
-            #from phoneme_dict import hk_audio_phoneme_combo_beginnings
+            from phoneme_dict import hk_audio_phoneme_combo_beginnings
             from phoneme_dict import hk_audio_solo_phonemes
             # convert text to .wav urls, in order, separated by spaces
             input_text = input_text + "-[static/speech/misc/blank.wav]-"
-            # sub in phoneme combo endings first
+           
+            # add spaces between words:
+            for phoneme in separate_words.keys():
+                input_text = re.sub(phoneme, separate_words[phoneme], input_text)
+            print "STAGE ZERO (separate words):"
+            print input_text
+
             """
+            # sub in phoneme combo endings first
             for phoneme in hk_audio_phoneme_combo_endings.keys():
-                input_text = re.sub(phoneme, hk_audio_phoneme_combos1[phoneme], input_text)
+                input_text = re.sub(phoneme, hk_audio_phoneme_combo_endings[phoneme], input_text)
             print "STAGE ONE (suffixes):"
             print input_text   
+            """
             # sub in phoneme combo beginnings second
             for phoneme in hk_audio_phoneme_combo_beginnings.keys():
-                input_text = re.sub(phoneme, hk_audio_phoneme_combos2[phoneme], input_text)
+                input_text = re.sub(phoneme, hk_audio_phoneme_combo_beginnings[phoneme], input_text)
             print "STAGE TWO (prefixes):"
             print input_text
-            """
+            
             # sub in individual phonemes last
             for phoneme in hk_audio_solo_phonemes.keys():
                 input_text = re.sub(phoneme, hk_audio_solo_phonemes[phoneme], input_text)
@@ -142,6 +150,20 @@ def add_entry():
                 print "|", idx, "|", val
 
                 current_phoneme = AudioSegment.from_wav(wavlist[idx]) 
+
+                #audio blending
+                '''
+                audio_file = []
+                word_done = False
+                for idx, wav in wavlist:
+                    if wav not 'static/misc/blank.mp3':
+                        word_done = False
+                        audio_file[idx] = wav
+                        cut_end_of_audio()
+                    else:
+                        cut start of previous audio
+                        word_done = True
+                '''
 
                 '''digraph_prefix = ['static/sound/pa1.wav',
                                   'static/sound/ba1.wav',
@@ -199,7 +221,6 @@ def add_entry():
 
         input_text = text_to_phoneme_2(input_text)
         input_text = format_text_2(input_text)
-        print 'here'
         input_text = text_to_phoneme_filename(input_text)
         input_text = remove_words_without_audio(input_text)
         wavlist = filenames_to_list(input_text)
