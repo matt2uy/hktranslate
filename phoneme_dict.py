@@ -1,3 +1,27 @@
+hk_list = {
+            'the ' : 'dah ',
+            'that ' : 'dat ', 
+            'ere' : 'ah ',
+            'er' : 'ah',
+            'v' : 'f', 
+            'at' : 'ah', 
+            'tr' : 'ch', 
+            'ch' : 'tr', 
+            'al' : 'ow', 
+            'or' : 'oe', 
+            'llo ' : 'woh ',
+            'ars' : 'as',
+            'ar' : 'ah',
+            'dol' : 'dow',
+            'ty' : 'tay',
+            'xclu' : 'xcawu',
+            'ble' : 'bow',
+            'ro' : 'wo',
+            'state' : 'stayte',
+            'ay' : 'ai'
+            }
+# not used in search and replace
+
 hk_text_phonemes = {
         'AA' : 'ao', #odd     AA D
         'AE' : 'ah', #at AE T
@@ -39,6 +63,7 @@ hk_text_phonemes = {
         'Z' : 'zh', #zee        Z IY
         'ZH' : 'sh' #seizure    S IY ZH ER
         }
+
 
 hk_audio_solo_phonemes = {
         "-AA-" : "-[static/speech/single_phoneme/aa.wav]-", # aww in odd

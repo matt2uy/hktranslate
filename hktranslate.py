@@ -26,6 +26,7 @@ def add_entry():
         raw_english = request.form['text']
         raw_english = raw_english.split()
         return raw_english
+    '''
     def add_accent(raw_english):
         from phoneme_dict import hk_text_phonemes
 
@@ -62,6 +63,14 @@ def add_entry():
         accented_english = format_text(accented_english)
         print "Accented Text: ", accented_english
         return accented_english   
+    '''
+    def doit(raw_english):
+        accented_english = raw_english
+        accented_english = ' '.join(accented_english)
+        from phoneme_dict import hk_list
+        for phoneme in hk_list.keys():
+            accented_english = re.sub(phoneme, hk_list[phoneme], accented_english)
+        return accented_english    
     def text_to_speech(input_text):
         from pydub import AudioSegment
         
@@ -229,7 +238,8 @@ def add_entry():
         save_audio_file()      
     
     raw_english = get_text()
-    accented_english = add_accent(raw_english)  
+    #accented_english = add_accent(raw_english)  
+    accented_english = doit(raw_english)
     text_to_speech(raw_english) # updates audio_processed.wav
 
     return render_template('translate.html', word=accented_english, audio_file='audio_processed.wav')
