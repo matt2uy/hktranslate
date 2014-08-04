@@ -64,7 +64,7 @@ def add_entry():
         print "Accented Text: ", accented_english
         return accented_english   
     '''
-    def doit(raw_english):
+    def add_accent(raw_english):
         accented_english = raw_english
         accented_english = ' '.join(accented_english)
         from phoneme_dict import hk_list
@@ -94,7 +94,7 @@ def add_entry():
           return text
         def text_to_phoneme_filename(input_text):
             from phoneme_dict import separate_words
-            #from phoneme_dict import hk_audio_phoneme_combo_endings
+            from phoneme_dict import hk_audio_phoneme_combo_endings
             from phoneme_dict import hk_audio_phoneme_combo_beginnings
             from phoneme_dict import hk_audio_solo_phonemes
             # convert text to .wav urls, in order, separated by spaces
@@ -106,13 +106,12 @@ def add_entry():
             print "STAGE ZERO (separate words):"
             print input_text
 
-            """
             # sub in phoneme combo endings first
             for phoneme in hk_audio_phoneme_combo_endings.keys():
                 input_text = re.sub(phoneme, hk_audio_phoneme_combo_endings[phoneme], input_text)
             print "STAGE ONE (suffixes):"
             print input_text   
-            """
+            
             # sub in phoneme combo beginnings second
             for phoneme in hk_audio_phoneme_combo_beginnings.keys():
                 input_text = re.sub(phoneme, hk_audio_phoneme_combo_beginnings[phoneme], input_text)
@@ -238,8 +237,7 @@ def add_entry():
         save_audio_file()      
     
     raw_english = get_text()
-    #accented_english = add_accent(raw_english)  
-    accented_english = doit(raw_english)
+    accented_english = add_accent(raw_english)
     text_to_speech(raw_english) # updates audio_processed.wav
 
     return render_template('translate.html', word=accented_english, audio_file='audio_processed.wav')

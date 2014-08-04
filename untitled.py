@@ -20,14 +20,15 @@ hk_list = {
             'state' : 'stayte',
             'ay' : 'ai'
             }
+# not used in search and replace
 
 hk_text_phonemes = {
         'AA' : 'ao', #odd     AA D
-        'AE' : 'a', #at AE T
-        'AH' : 'a', #hut        HH AH T
+        'AE' : 'ah', #at AE T
+        'AH' : 'ah', #hut        HH AH T
         'AO' : 'ou', #ought     AO T
         'AW' : 'ow', #cow       K AW
-        'AY' : 'ai', #hide      HH AY D
+        'AY' : 'ai', #hide      HH AY D  
         'B' : 'b', #be  B IY
         'CH' : 'ch', #cheese    CH IY Z
         'D' : 'd', #dee D IY
@@ -39,7 +40,7 @@ hk_text_phonemes = {
         'G' : 'g', #green       G R IY N
         'HH' : 'h', #he HH IY
         'IH' : 'i', #it IH T
-        'IY' : 'eh', #eat       IY T
+        'IY' : 'ee', #eat       IY T
         'JH' : 'g', #gee        JH IY
         'K' : 'k', #key K IY
         'L' : 'l', #lee L IY
@@ -53,819 +54,740 @@ hk_text_phonemes = {
         'S' : 's', #sea S IY
         'SH' : 'sh', #she       SH IY
         'T' : 't', #tea T IY
-        'TH' : 'th', #theta     TH EY T AH
+        'TH' : 'd', #theta     TH EY T AH
         'UH' : 'oo', #hood      HH UH D
         'UW' : 'ooh', #two      T UW
-        'V' : 'v', #vee V IY
-        'W' : 'w', #we  W IY
+        'V' : 'w', #vee V IY
+        'W' : 'v', #we  W IY
         'Y' : 'y', #yield       Y IY L D
         'Z' : 'zh', #zee        Z IY
         'ZH' : 'sh' #seizure    S IY ZH ER
         }
+
+
 hk_audio_solo_phonemes = {
-        '-AA-' : '-[static/speech/single_phoneme/aa.wav]-',# aww in odd
-        '-AE-' : '-[static/speech/single_phoneme/ae.wav]-',# a in bass
-        '-AH-' : '-[static/speech/single_phoneme/ah.wav]-',# uh in hut        HH AH T
-        '-AO-' : '-[static/speech/single_phoneme/ao.wav]-',# aww in ought     AO T
-        '-AW-' : '-[static/speech/single_phoneme/aw.wav]-',#  ow, in cow       K AW
-        '-AY-' : '-[static/speech/single_phoneme/ay.wav]-',#  i in hide      HH AY D
-        '-EH-' : '-[static/speech/single_phoneme/eh.wav]-',# eh in Ed 
-        '-ER-' : '-[static/speech/single_phoneme/er.wav]-',# ur #hurt      HH ER T
-        '-EY-' : '-[static/speech/single_phoneme/ey.wav]-',# ey  #ate       EY T
-        '-IH-' : '-[static/speech/single_phoneme/ih.wav]-',# ih #it IH T
-        '-IY-' : '-[static/speech/single_phoneme/iy.wav]-',# iy #eat       IY T
-        '-OW-' : '-[static/speech/single_phoneme/ow.wav]-',#'ow', #oat       OW T
-        '-OY-' : '-[static/speech/single_phoneme/oy.wav]-',#'oy', #toy       T OY
-        '-UH-' : '-[static/speech/single_phoneme/uh.wav]-',#'ou', #hood      HH UH D
-        '-UW-' : '-[static/speech/single_phoneme/uw.wav]-',#'ooh', #two      T UW
+        "-AA-" : "-[static/speech/single_phoneme/aa.wav]-", # aww in odd
+        "-AE-" : "-[static/speech/single_phoneme/ae.wav]-", # a in bass
+        "-AH-" : "-[static/speech/single_phoneme/ah.wav]-", # uh in hut        HH AH T
+        "-AO-" : "-[static/speech/single_phoneme/ao.wav]-", # aww in ought     AO T
+        "-AW-" : "-[static/speech/single_phoneme/aw.wav]-", #  ow, in cow       K AW
+        "-AY-" : "-[static/speech/single_phoneme/ay.wav]-", #  i in hide      HH AY D
+        "-EH-" : "-[static/speech/single_phoneme/eh.wav]-", # eh in Ed 
+        "-ER-" : "-[static/speech/single_phoneme/er.wav]-", # ur #hurt      HH ER T
+        "-EY-" : "-[static/speech/single_phoneme/ey.wav]-", # ey  #ate       EY T
+        "-IH-" : "-[static/speech/single_phoneme/ih.wav]-", # ih #it IH T
+        "-IY-" : "-[static/speech/single_phoneme/iy.wav]-", # iy #eat       IY T
+        "-OW-" : "-[static/speech/single_phoneme/ow.wav]-", #'ow', #oat       OW T
+        "-OY-" : "-[static/speech/single_phoneme/oy.wav]-", #'oy', #toy       T OY
+        "-UH-" : "-[static/speech/single_phoneme/uh.wav]-", #'ou', #hood      HH UH D
+        "-UW-" : "-[static/speech/single_phoneme/uw.wav]-", #'ooh', #two      T UW
         
 
 
-        '-B-' : '-[static/speech/single_phoneme/b.wav]-',#   b  in bee
-        '-CH-' : '-[static/speech/single_phoneme/ch.wav]-',# ch in cheese    CH IY Z
-        '-D-' : '-[static/speech/single_phoneme/d.wav]-',# d in dee
-        '-F-' : '-[static/speech/single_phoneme/f.wav]-',# f #fee        F IY
-        '-G-' : '-[static/speech/single_phoneme/g.wav]-',# g #green       G R IY N
-        '-HH-' : '-[static/speech/single_phoneme/hh.wav]-',# h #he HH IY
-        '-JH-' : '-[static/speech/single_phoneme/jh.wav]-',# j  #gee        JH IY
-        '-K-' : '-[static/speech/single_phoneme/k.wav]-',# k #key K IY
-        '-L-' : '-[static/speech/single_phoneme/l.wav]-',# l #lee L IY
-        '-M-' : '-[static/speech/single_phoneme/m.wav]-',# m, #me  M IY
-        '-NG-' : '-[static/speech/single_phoneme/ng.wav]-',# ng #ping      P IH NG
-        '-N-' : '-[static/speech/single_phoneme/n.wav]-',# n in #knee        N IY
-        '-P-' : '-[static/speech/single_phoneme/p.wav]-',#'p', #pee P IY
-        '-R-' : '-[static/speech/single_phoneme/r.wav]-',#'h', #read        R IY D
-        '-S-' : '-[static/speech/single_phoneme/s.wav]-',#'s', #sea S IY
-        '-SH-' : '-[static/speech/single_phoneme/sh.wav]-',#'sh', #she       SH IY
-        '-T-' : '-[static/speech/single_phoneme/t.wav]-',#'t', #tea T IY
-        '-TH-' : '-[static/speech/single_phoneme/th.wav]-',#'th', #theta     TH EY T AH
-        '-V-' : '-[static/speech/single_phoneme/v.wav]-',#'we', #vee V IY
-        '-W-' : '-[static/speech/single_phoneme/w.wav]-',#'w', #we  W IY
-        '-Y-' : '-[static/speech/single_phoneme/y.wav]-',#'y', #yield       Y IY L D
-        '-Z-' : '-[static/speech/single_phoneme/z.wav]-',#'zh', #zee        Z IY
-        '-ZH-' : '-[static/speech/single_phoneme/zh.wav]-'#'' #seizure    S IY ZH ER
+        "-B-" : "-[static/speech/single_phoneme/b.wav]-", #   b  in bee
+        "-CH-" : "-[static/speech/single_phoneme/ch.wav]-", # ch in cheese    CH IY Z
+        "-D-" : "-[static/speech/single_phoneme/d.wav]-", # d in dee
+        "-F-" : "-[static/speech/single_phoneme/f.wav]-", # f #fee        F IY
+        "-G-" : "-[static/speech/single_phoneme/g.wav]-", # g #green       G R IY N
+        "-HH-" : "-[static/speech/single_phoneme/hh.wav]-", # h #he HH IY
+        "-JH-" : "-[static/speech/single_phoneme/jh.wav]-", # j  #gee        JH IY
+        "-K-" : "-[static/speech/single_phoneme/k.wav]-", # k #key K IY
+        "-L-" : "-[static/speech/single_phoneme/l.wav]-", # l #lee L IY
+        "-M-" : "-[static/speech/single_phoneme/m.wav]-", # m, #me  M IY
+        "-NG-" : "-[static/speech/single_phoneme/ng.wav]-", # ng #ping      P IH NG
+        "-N-" : "-[static/speech/single_phoneme/n.wav]-", # n in #knee        N IY
+        "-P-" : "-[static/speech/single_phoneme/p.wav]-", #'p', #pee P IY
+        "-R-" : "-[static/speech/single_phoneme/r.wav]-", #'h', #read        R IY D
+        "-S-" : "-[static/speech/single_phoneme/s.wav]-", #'s', #sea S IY
+        "-SH-" : "-[static/speech/single_phoneme/sh.wav]-", #'sh', #she       SH IY
+        "-T-" : "-[static/speech/single_phoneme/t.wav]-", #'t', #tea T IY
+        "-TH-" : "-[static/speech/single_phoneme/th.wav]-", #'th', #theta     TH EY T AH
+        "-V-" : "-[static/speech/single_phoneme/v.wav]-", #'we', #vee V IY
+        "-W-" : "-[static/speech/single_phoneme/w.wav]-", #'w', #we  W IY
+        "-Y-" : "-[static/speech/single_phoneme/y.wav]-", #'y', #yield       Y IY L D
+        "-Z-" : "-[static/speech/single_phoneme/z.wav]-", #'zh', #zee        Z IY
+        "-ZH-" : "-[static/speech/single_phoneme/zh.wav]-"# #seizure    S IY ZH ER
         }
 
-"""
-
-hk_audio_phoneme_combo_endings = {
-
-        # vowel -> consonant
-        "-AA-B-" : '-AA-[static/speech/double_phoneme/aab.wav]-', # odd
-        "-AE-B-" : '-AE[static/speech/double_phoneme/aeb.wav]-', # at
-        "-AH-B-" : '-AH-[static/speech/double_phoneme/ahb.wav]-', # hut     
-        "-AO-B-" : '-AO-[static/speech/double_phoneme/aob.wav]-', # chop
-        "-AW-B-" : '-AW-[static/speech/double_phoneme/awb.wav]-', # chow
-        "-AY-B-" : '-AY-[static/speech/double_phoneme/ayb.wav]-', # hide
-        "-EH-B-" : '-EH-[static/speech/double_phoneme/ehb.wav]-', # ed
-        "-ER-B-" : '-EH-[static/speech/double_phoneme/erb.wav]-', # hurt 
-        "-EY-B-" : '-EY-[static/speech/double_phoneme/eyb.wav]-', # made
-        "-IH-B-" : '-IH-[static/speech/double_phoneme/ihb.wav]-', # ing
-        "-IY-B-" : '-IY-[static/speech/double_phoneme/iyb.wav]-', # read
-        "-OW-B-" : '-OW-[static/speech/double_phoneme/owb.wav]-', # oat
-        "-OY-B-" : '-OY-[static/speech/double_phoneme/oyb.wav]-', # joy
-        '-UH-B-" : '-UH-[static/speech/double_phoneme/uhb.wav]-',# bud   
-        '-UW-B-" : '-UW-[static/speech/double_phoneme/uwb.wav]-',# tube
-
-
-        "-AA-CH-" : '-AA-[static/speech/double_phoneme/aach.wav]-', # odd
-        "-AE-CH-" : '-AE[static/speech/double_phoneme/aech.wav]-', # at
-        "-AH-CH-" : '-AH-[static/speech/double_phoneme/ahch.wav]-', # hut     
-        "-AO-CH-" : '-AO-[static/speech/double_phoneme/aoch.wav]-', # chop
-        "-AW-CH-" : '-AW-[static/speech/double_phoneme/awch.wav]-', # chow
-        "-AY-CH-" : '-AY-[static/speech/double_phoneme/aych.wav]-', # hide
-        "-EH-CH-" : '-EH-[static/speech/double_phoneme/ehch.wav]-', # ed
-        "-ER-CH-" : '-EH-[static/speech/double_phoneme/erch.wav]-', # hurt 
-        "-EY-CH-" : '-EY-[static/speech/double_phoneme/eych.wav]-', # made
-        "-IH-CH-" : '-IH-[static/speech/double_phoneme/ihch.wav]-', # ing
-        "-IY-CH-" : '-IY-[static/speech/double_phoneme/iych.wav]-', # read
-        "-OW-CH-" : '-OW-[static/speech/double_phoneme/owch.wav]-', # oat
-        "-OY-CH-" : '-OY-[static/speech/double_phoneme/oych.wav]-', # joy
-        '-UH-CH-" : '-UH-[static/speech/double_phoneme/uhch.wav]-',# bud   
-        '-UW-CH-" : '-UW-[static/speech/double_phoneme/uwch.wav]-',# tube
-
-        "-AA-D-" : '-AA-[static/speech/double_phoneme/aad.wav]-', # odd
-        "-AE-D-" : '-AE[static/speech/double_phoneme/aed.wav]-', # at
-        "-AH-D-" : '-AH-[static/speech/double_phoneme/ahd.wav]-', # hut     
-        "-AO-D-" : '-AO-[static/speech/double_phoneme/aod.wav]-', # chop
-        "-AW-D-" : '-AW-[static/speech/double_phoneme/awd.wav]-', # chow
-        "-AY-D-" : '-AY-[static/speech/double_phoneme/ayd.wav]-', # hide
-        "-EH-D-" : '-EH-[static/speech/double_phoneme/ehd.wav]-', # ed
-        "-ER-D-" : '-EH-[static/speech/double_phoneme/erd.wav]-', # hurt 
-        "-EY-D-" : '-EY-[static/speech/double_phoneme/eyd.wav]-', # made
-        "-IH-D-" : '-IH-[static/speech/double_phoneme/ihd.wav]-', # ing
-        "-IY-D-" : '-IY-[static/speech/double_phoneme/iyd.wav]-', # read
-        "-OW-D-" : '-OW-[static/speech/double_phoneme/owd.wav]-', # oat
-        "-OY-D-" : '-OY-[static/speech/double_phoneme/oyd.wav]-', # joy
-        '-UH-D-" : '-UH-[static/speech/double_phoneme/uhd.wav]-',# bud   
-        '-UW-D-" : '-UW-[static/speech/double_phoneme/uwd.wav]-',# tube
-
-        "-AA-F-" : '-AA-[static/speech/double_phoneme/aaf.wav]-', # odd
-        "-AE-F-" : '-AE[static/speech/double_phoneme/aef.wav]-', # at
-        "-AH-F-" : '-AH-[static/speech/double_phoneme/ahf.wav]-', # hut     
-        "-AO-F-" : '-AO-[static/speech/double_phoneme/aof.wav]-', # chop
-        "-AW-F-" : '-AW-[static/speech/double_phoneme/awf.wav]-', # chow
-        "-AY-F-" : '-AY-[static/speech/double_phoneme/ayf.wav]-', # hide
-        "-EH-F-" : '-EH-[static/speech/double_phoneme/ehf.wav]-', # ed
-        "-ER-F-" : '-EH-[static/speech/double_phoneme/erf.wav]-', # hurt 
-        "-EY-F-" : '-EY-[static/speech/double_phoneme/eyf.wav]-', # made
-        "-IH-F-" : '-IH-[static/speech/double_phoneme/ihf.wav]-', # ing
-        "-IY-F-" : '-IY-[static/speech/double_phoneme/iyf.wav]-', # read
-        "-OW-F-" : '-OW-[static/speech/double_phoneme/owf.wav]-', # oat
-        "-OY-F-" : '-OY-[static/speech/double_phoneme/oyf.wav]-', # joy
-        '-UH-F-" : '-UH-[static/speech/double_phoneme/uhf.wav]-',# bud   
-        '-UW-F-" : '-UW-[static/speech/double_phoneme/uwf.wav]-',# tube
-
-        "-AA-G-" : '-AA-[static/speech/double_phoneme/aag.wav]-', # odd
-        "-AE-G-" : '-AE[static/speech/double_phoneme/aeg.wav]-', # at
-        "-AH-G-" : '-AH-[static/speech/double_phoneme/ahg.wav]-', # hut     
-        "-AO-G-" : '-AO-[static/speech/double_phoneme/aog.wav]-', # chop
-        "-AW-G-" : '-AW-[static/speech/double_phoneme/awg.wav]-', # chow
-        "-AY-G-" : '-AY-[static/speech/double_phoneme/ayg.wav]-', # hide
-        "-EH-G-" : '-EH-[static/speech/double_phoneme/ehg.wav]-', # ed
-        "-ER-G-" : '-EH-[static/speech/double_phoneme/erg.wav]-', # hurt 
-        "-EY-G-" : '-EY-[static/speech/double_phoneme/eyg.wav]-', # made
-        "-IH-G-" : '-IH-[static/speech/double_phoneme/ihg.wav]-', # ing
-        "-IY-G-" : '-IY-[static/speech/double_phoneme/iyg.wav]-', # read
-        "-OW-G-" : '-OW-[static/speech/double_phoneme/owg.wav]-', # oat
-        "-OY-G-" : '-OY-[static/speech/double_phoneme/oyg.wav]-', # joy
-        '-UH-G-" : '-UH-[static/speech/double_phoneme/uhg.wav]-',# bud   
-        '-UW-G-" : '-UW-[static/speech/double_phoneme/uwg.wav]-',# tube
-
-
-        "-AA-JH-" : '-AA-[static/speech/double_phoneme/aajh.wav]-', # odd
-        "-AE-JH-" : '-AE[static/speech/double_phoneme/aejh.wav]-', # at
-        "-AH-JH-" : '-AH-[static/speech/double_phoneme/ahjh.wav]-', # hut     
-        "-AO-JH-" : '-AO-[static/speech/double_phoneme/aojh.wav]-', # chop
-        "-AW-JH-" : '-AW-[static/speech/double_phoneme/awjh.wav]-', # chow
-        "-AY-JH-" : '-AY-[static/speech/double_phoneme/ayjh.wav]-', # hide
-        "-EH-JH-" : '-EH-[static/speech/double_phoneme/ehjh.wav]-', # ed
-        "-ER-JH-" : '-EH-[static/speech/double_phoneme/erjh.wav]-', # hurt 
-        "-EY-JH-" : '-EY-[static/speech/double_phoneme/eyjh.wav]-', # made
-        "-IH-JH-" : '-IH-[static/speech/double_phoneme/ihjh.wav]-', # ing
-        "-IY-JH-" : '-IY-[static/speech/double_phoneme/iyjh.wav]-', # read
-        "-OW-JH-" : '-OW-[static/speech/double_phoneme/owjh.wav]-', # oat
-        "-OY-JH-" : '-OY-[static/speech/double_phoneme/oyjh.wav]-', # joy
-        '-UH-JH-" : '-UH-[static/speech/double_phoneme/uhjh.wav]-',# bud   
-        '-UW-JH-" : '-UW-[static/speech/double_phoneme/uwjh.wav]-',# tube
-
-        "-AA-K-" : '-AA-[static/speech/double_phoneme/aak.wav]-', # odd
-        "-AE-K-" : '-AE[static/speech/double_phoneme/aek.wav]-', # at
-        "-AH-K-" : '-AH-[static/speech/double_phoneme/ahk.wav]-', # hut     
-        "-AO-K-" : '-AO-[static/speech/double_phoneme/aok.wav]-', # chop
-        "-AW-K-" : '-AW-[static/speech/double_phoneme/awk.wav]-', # chow
-        "-AY-K-" : '-AY-[static/speech/double_phoneme/ayk.wav]-', # hide
-        "-EH-K-" : '-EH-[static/speech/double_phoneme/ehk.wav]-', # ed
-        "-ER-K-" : '-EH-[static/speech/double_phoneme/erk.wav]-', # hurt 
-        "-EY-K-" : '-EY-[static/speech/double_phoneme/eyk.wav]-', # made
-        "-IH-K-" : '-IH-[static/speech/double_phoneme/ihk.wav]-', # ing
-        "-IY-K-" : '-IY-[static/speech/double_phoneme/iyk.wav]-', # read
-        "-OW-K-" : '-OW-[static/speech/double_phoneme/owk.wav]-', # oat
-        "-OY-K-" : '-OY-[static/speech/double_phoneme/oyk.wav]-', # joy
-        '-UH-K-" : '-UH-[static/speech/double_phoneme/uhk.wav]-',# bud   
-        '-UW-K-" : '-UW-[static/speech/double_phoneme/uwk.wav]-',# tube
-
-        "-AA-L-" : '-AA-[static/speech/double_phoneme/aal.wav]-', # odd
-        "-AE-L-" : '-AE[static/speech/double_phoneme/ael.wav]-', # at
-        "-AH-L-" : '-AH-[static/speech/double_phoneme/ahl.wav]-', # hut     
-        "-AO-L-" : '-AO-[static/speech/double_phoneme/aol.wav]-', # chop
-        "-AW-L-" : '-AW-[static/speech/double_phoneme/awl.wav]-', # chow
-        "-AY-L-" : '-AY-[static/speech/double_phoneme/ayl.wav]-', # hide
-        "-EH-L-" : '-EH-[static/speech/double_phoneme/ehl.wav]-', # ed
-        "-ER-L-" : '-EH-[static/speech/double_phoneme/erl.wav]-', # hurt 
-        "-EY-L-" : '-EY-[static/speech/double_phoneme/eyl.wav]-', # made
-        "-IH-L-" : '-IH-[static/speech/double_phoneme/ihl.wav]-', # ing
-        "-IY-L-" : '-IY-[static/speech/double_phoneme/iyl.wav]-', # read
-        "-OW-L-" : '-OW-[static/speech/double_phoneme/owl.wav]-', # oat
-        "-OY-L-" : '-OY-[static/speech/double_phoneme/oyl.wav]-', # joy
-        '-UH-L-" : '-UH-[static/speech/double_phoneme/uhl.wav]-',# bud   
-        '-UW-L-" : '-UW-[static/speech/double_phoneme/uwl.wav]-',# tube
-
-
-        "-AA-M-" : '-AA-[static/speech/double_phoneme/aam.wav]-', # odd
-        "-AE-M-" : '-AE[static/speech/double_phoneme/aem.wav]-', # at
-        "-AH-M-" : '-AH-[static/speech/double_phoneme/ahm.wav]-', # hut     
-        "-AO-M-" : '-AO-[static/speech/double_phoneme/aom.wav]-', # chop
-        "-AW-M-" : '-AW-[static/speech/double_phoneme/awm.wav]-', # chow
-        "-AY-M-" : '-AY-[static/speech/double_phoneme/aym.wav]-', # hide
-        "-EH-M-" : '-EH-[static/speech/double_phoneme/ehm.wav]-', # ed
-        "-ER-M-" : '-EH-[static/speech/double_phoneme/erm.wav]-', # hurt 
-        "-EY-M-" : '-EY-[static/speech/double_phoneme/eym.wav]-', # made
-        "-IH-M-" : '-IH-[static/speech/double_phoneme/ihm.wav]-', # ing
-        "-IY-M-" : '-IY-[static/speech/double_phoneme/iym.wav]-', # read
-        "-OW-M-" : '-OW-[static/speech/double_phoneme/owm.wav]-', # oat
-        "-OY-M-" : '-OY-[static/speech/double_phoneme/oym.wav]-', # joy
-        '-UH-M-" : '-UH-[static/speech/double_phoneme/uhm.wav]-',# bud   
-        '-UW-M-" : '-UW-[static/speech/double_phoneme/uwm.wav]-',# tube
-
-
-        "-AA-NG-" : '-AA-[static/speech/double_phoneme/aang.wav]-', # odd
-        "-AE-NG-" : '-AE[static/speech/double_phoneme/aeng.wav]-', # at
-        "-AH-NG-" : '-AH-[static/speech/double_phoneme/ahng.wav]-', # hut     
-        "-AO-NG-" : '-AO-[static/speech/double_phoneme/aong.wav]-', # chop
-        "-AW-NG-" : '-AW-[static/speech/double_phoneme/awng.wav]-', # chow
-        "-AY-NG-" : '-AY-[static/speech/double_phoneme/ayng.wav]-', # hide
-        "-EH-NG-" : '-EH-[static/speech/double_phoneme/ehng.wav]-', # ed
-        "-ER-NG-" : '-EH-[static/speech/double_phoneme/erng.wav]-', # hurt 
-        "-EY-NG-" : '-EY-[static/speech/double_phoneme/eyng.wav]-', # made
-        "-IH-NG-" : '-IH-[static/speech/double_phoneme/ihng.wav]-', # ing
-        "-IY-NG-" : '-IY-[static/speech/double_phoneme/iyng.wav]-', # read
-        "-OW-NG-" : '-OW-[static/speech/double_phoneme/owng.wav]-', # oat
-        "-OY-NG-" : '-OY-[static/speech/double_phoneme/oyng.wav]-', # joy
-        '-UH-NG-" : '-UH-[static/speech/double_phoneme/uhng.wav]-',# bud   
-        '-UW-NG-" : '-UW-[static/speech/double_phoneme/uwng.wav]-',# tube
-
-
-        "-AA-N-" : '-AA-[static/speech/double_phoneme/aan.wav]-', # odd 
-        "-AE-N-" : '-AE[static/speech/double_phoneme/aen.wav]-', # at
-        "-AH-N-" : '-AH-[static/speech/double_phoneme/ahn.wav]-', # hut     
-        "-AO-N-" : '-AO-[static/speech/double_phoneme/aon.wav]-', # ought
-        "-AW-N-" : '-AW-[static/speech/double_phoneme/awn.wav]-', # cow
-        "-AY-N-" : '-AY-[static/speech/double_phoneme/ayn.wav]-', # hide
-        "-EH-N-" : '-EH-[static/speech/double_phoneme/ehn.wav]-', # ed
-        "-ER-N-" : '-EH-[static/speech/double_phoneme/ern.wav]-', # hurt 
-        "-EY-N-" : '-EY-[static/speech/double_phoneme/eyn.wav]-', # ate
-        "-IH-N-" : '-IH-[static/speech/double_phoneme/ihn.wav]-', # it
-        "-IY-N-" : '-IY-[static/speech/double_phoneme/iyn.wav]-', # eat
-        "-OW-N-" : '-OW-[static/speech/double_phoneme/own.wav]-', # oat
-        "-OY-N-" : '-OY-[static/speech/double_phoneme/oyn.wav]-', # toy
-        '-UH-N-" : '-UH-[static/speech/double_phoneme/uhn.wav]-',# hood   
-        '-UW-N-" : '-UW-[static/speech/double_phoneme/uwn.wav]-',# too
-
-
-        "-AA-P-" : '-AA-[static/speech/double_phoneme/aap.wav]-', # odd 
-        "-AE-P-" : '-AE[static/speech/double_phoneme/aep.wav]-', # at
-        "-AH-P-" : '-AH-[static/speech/double_phoneme/ahp.wav]-', # hut     
-        "-AO-P-" : '-AO-[static/speech/double_phoneme/aop.wav]-', # ought
-        "-AW-P-" : '-AW-[static/speech/double_phoneme/awp.wav]-', # cow
-        "-AY-P-" : '-AY-[static/speech/double_phoneme/ayp.wav]-', # hide
-        "-EH-P-" : '-EH-[static/speech/double_phoneme/ehp.wav]-', # ed
-        "-ER-P-" : '-EH-[static/speech/double_phoneme/erp.wav]-', # hurt 
-        "-EY-P-" : '-EY-[static/speech/double_phoneme/eyp.wav]-', # ate
-        "-IH-P-" : '-IH-[static/speech/double_phoneme/ihp.wav]-', # it
-        "-IY-P-" : '-IY-[static/speech/double_phoneme/iyp.wav]-', # eat
-        "-OW-P-" : '-OW-[static/speech/double_phoneme/owp.wav]-', # oat
-        "-OY-P-" : '-OY-[static/speech/double_phoneme/oyp.wav]-', # toy
-        '-UH-P-" : '-UH-[static/speech/double_phoneme/uhp.wav]-',# hood   
-        '-UW-P-" : '-UW-[static/speech/double_phoneme/uwp.wav]-',# too
-
-
-        "-AA-R-" : '-AA-[static/speech/double_phoneme/aar.wav]-', # odd 
-        "-AE-R-" : '-AE[static/speech/double_phoneme/aer.wav]-', # at
-        "-AH-R-" : '-AH-[static/speech/double_phoneme/ahr.wav]-', # hut     
-        "-AO-R-" : '-AO-[static/speech/double_phoneme/aor.wav]-', # ought
-        "-AW-R-" : '-AW-[static/speech/double_phoneme/awr.wav]-', # cow
-        "-AY-R-" : '-AY-[static/speech/double_phoneme/ayr.wav]-', # hide
-        "-EH-R-" : '-EH-[static/speech/double_phoneme/ehr.wav]-', # ed
-        "-ER-R-" : '-EH-[static/speech/double_phoneme/eyr.wav]-', # hurt 
-        "-EY-R-" : '-EY-[static/speech/double_phoneme/eyr.wav]-', # ate
-        "-IH-R-" : '-IH-[static/speech/double_phoneme/ihr.wav]-', # it
-        "-IY-R-" : '-IY-[static/speech/double_phoneme/iyr.wav]-', # eat
-        "-OW-R-" : '-OW-[static/speech/double_phoneme/owr.wav]-', # oat
-        "-OY-R-" : '-OY-[static/speech/double_phoneme/oyr.wav]-', # toy
-        '-UH-R-" : '-UH-[static/speech/double_phoneme/uhr.wav]-',# hood   
-        '-UW-R-" : '-UW-[static/speech/double_phoneme/uwr.wav]-',# too
-
-
-        "-AA-S-" : '-AA-[static/speech/double_phoneme/aas.wav]-', # odd 
-        "-AE-S-" : '-AE[static/speech/double_phoneme/aes.wav]-', # at
-        "-AH-S-" : '-AH-[static/speech/double_phoneme/ahs.wav]-', # hut     
-        "-AO-S-" : '-AO-[static/speech/double_phoneme/aos.wav]-', # ought
-        "-AW-S-" : '-AW-[static/speech/double_phoneme/aws1.wav]-', # cow
-        "-AY-S-" : '-AY-[static/speech/double_phoneme/ays.wav]-', # hide
-        "-EH-S-" : '-EH-[static/speech/double_phoneme/ehs.wav]-', # ed
-        "-ER-S-" : '-EH-[static/speech/double_phoneme/ers.wav]-', # hurt 
-        "-EY-S-" : '-EY-[static/speech/double_phoneme/eys.wav]-', # ate
-        "-IH-S-" : '-IH-[static/speech/double_phoneme/ihs.wav]-', # it
-        "-IY-S-" : '-IY-[static/speech/double_phoneme/iys.wav]-', # eat
-        "-OW-S-" : '-OW-[static/speech/double_phoneme/ows.wav]-', # oat
-        "-OY-S-" : '-OY-[static/speech/double_phoneme/oys.wav]-', # toy
-        '-UH-S-" : '-UH-[static/speech/double_phoneme/uhs.wav]-',# hood   
-        '-UW-S-" : '-UW-[static/speech/double_phoneme/uws.wav]-',# too
-
-
-        "-AA-SH-" : '-AA-[static/speech/double_phoneme/aash.wav]-', # odd 
-        "-AE-SH-" : '-AE[static/speech/double_phoneme/aesh.wav]-', # at
-        "-AH-SH-" : '-AH-[static/speech/double_phoneme/ahsh.wav]-', # hut     
-        "-AO-SH-" : '-AO-[static/speech/double_phoneme/aosh.wav]-', # ought
-        "-AW-SH-" : '-AW-[static/speech/double_phoneme/awsh.wav]-', # cow
-        "-AY-SH-" : '-AY-[static/speech/double_phoneme/aysh.wav]-', # hide
-        "-EH-SH-" : '-EH-[static/speech/double_phoneme/ehsh.wav]-', # ed
-        "-ER-SH-" : '-EH-[static/speech/double_phoneme/ersh.wav]-', # hurt 
-        "-EY-SH-" : '-EY-[static/speech/double_phoneme/eysh.wav]-', # ate
-        "-IH-SH-" : '-IH-[static/speech/double_phoneme/ihsh.wav]-', # it
-        "-IY-SH-" : '-IY-[static/speech/double_phoneme/iysh.wav]-', # eat
-        "-OW-SH-" : '-OW-[static/speech/double_phoneme/owsh.wav]-', # oat
-        "-OY-SH-" : '-OY-[static/speech/double_phoneme/oysh.wav]-', # toy
-        '-UH-SH-" : '-UH-[static/speech/double_phoneme/uhsh.wav]-',# hood   
-        '-UW-SH-" : '-UW-[static/speech/double_phoneme/uwsh.wav]-',# too
-
-
-        "-AA-T-" : '-AA-[static/speech/double_phoneme/aat.wav]-', # odd 
-        "-AE-T-" : '-AE[static/speech/double_phoneme/aet.wav]-', # at
-        "-AH-T-" : '-AH-[static/speech/double_phoneme/aht.wav]-', # hut     
-        "-AO-T-" : '-AO-[static/speech/double_phoneme/aot.wav]-', # ought
-        "-AW-T-" : '-AW-[static/speech/double_phoneme/awt.wav]-', # cow
-        "-AY-T-" : '-AY-[static/speech/double_phoneme/ayt.wav]-', # hide
-        "-EH-T-" : '-EH-[static/speech/double_phoneme/eht.wav]-', # ed
-        "-ER-T-" : '-EH-[static/speech/double_phoneme/ert.wav]-', # hurt 
-        "-EY-T-" : '-EY-[static/speech/double_phoneme/eyt.wav]-', # ate
-        "-IH-T-" : '-IH-[static/speech/double_phoneme/iht.wav]-', # it
-        "-IY-T-" : '-IY-[static/speech/double_phoneme/iyt.wav]-', # eat
-        "-OW-T-" : '-OW-[static/speech/double_phoneme/owt.wav]-', # oat
-        "-OY-T-" : '-OY-[static/speech/double_phoneme/oyt.wav]-', # toy
-        '-UH-T-" : '-UH-[static/speech/double_phoneme/uht.wav]-',# hood   
-        '-UW-T-" : '-UW-[static/speech/double_phoneme/uwt.wav]-',# too
-
-
-        "-AA-TH-" : '-AA-[static/speech/double_phoneme/aath.wav]-', # odd 
-        "-AE-TH-" : '-AE[static/speech/double_phoneme/aeth.wav]-', # at
-        "-AH-TH-" : '-AH-[static/speech/double_phoneme/ahth.wav]-', # hut     
-        "-AO-TH-" : '-AO-[static/speech/double_phoneme/aoth.wav]-', # ought
-        "-AW-TH-" : '-AW-[static/speech/double_phoneme/awth.wav]-', # cow
-        "-AY-TH-" : '-AY-[static/speech/double_phoneme/ayth.wav]-', # hide
-        "-EH-TH-" : '-EH-[static/speech/double_phoneme/ehth.wav]-', # ed
-        "-ER-TH-" : '-EH-[static/speech/double_phoneme/erth.wav]-', # hurt 
-        "-EY-TH-" : '-EY-[static/speech/double_phoneme/eyth.wav]-', # ate
-        "-IH-TH-" : '-IH-[static/speech/double_phoneme/ihth.wav]-', # it
-        "-IY-TH-" : '-IY-[static/speech/double_phoneme/iyth.wav]-', # eat
-        "-OW-TH-" : '-OW-[static/speech/double_phoneme/owth.wav]-', # oat
-        "-OY-TH-" : '-OY-[static/speech/double_phoneme/oyth.wav]-', # toy
-        '-UH-TH-" : '-UH-[static/speech/double_phoneme/uhth.wav]-',# hood   
-        '-UW-TH-" : '-UW-[static/speech/double_phoneme/uwth.wav]-',# too
-
-
-        "-AA-V-" : '-AA-[static/speech/double_phoneme/aav.wav]-', # odd 
-        "-AE-V-" : '-AE[static/speech/double_phoneme/aev.wav]-', # at
-        "-AH-V-" : '-AH-[static/speech/double_phoneme/ahv.wav]-', # hut     
-        "-AO-V-" : '-AO-[static/speech/double_phoneme/aov.wav]-', # ought
-        "-AW-V-" : '-AW-[static/speech/double_phoneme/awv.wav]-', # cow
-        "-AY-V-" : '-AY-[static/speech/double_phoneme/ayv.wav]-', # hide
-        "-EH-V-" : '-EH-[static/speech/double_phoneme/ehv.wav]-', # ed
-        "-ER-V-" : '-EH-[static/speech/double_phoneme/erv.wav]-', # hurt 
-        "-EY-V-" : '-EY-[static/speech/double_phoneme/eyv.wav]-', # ate
-        "-IH-V-" : '-IH-[static/speech/double_phoneme/ihv.wav]-', # it
-        "-IY-V-" : '-IY-[static/speech/double_phoneme/iyv.wav]-', # eat
-        "-OW-V-" : '-OW-[static/speech/double_phoneme/owv.wav]-', # oat
-        "-OY-V-" : '-OY-[static/speech/double_phoneme/oyv.wav]-', # toy
-        '-UH-V-" : '-UH-[static/speech/double_phoneme/uhv.wav]-',# hood   
-        '-UW-V-" : '-UW-[static/speech/double_phoneme/uwv.wav]-',# too
-
-
-        "-AA-WH-" : '-AA-[static/speech/double_phoneme/aawh.wav]-', # odd 
-        "-AE-WH-" : '-AE[static/speech/double_phoneme/aewh.wav]-', # at
-        "-AH-WH-" : '-AH-[static/speech/double_phoneme/ahwh.wav]-', # hut     
-        "-AO-WH-" : '-AO-[static/speech/double_phoneme/aowh.wav]-', # ought
-        "-AW-WH-" : '-AW-[static/speech/double_phoneme/awwh.wav]-', # cow
-        "-AY-WH-" : '-AY-[static/speech/double_phoneme/aywh.wav]-', # hide
-        "-EH-WH-" : '-EH-[static/speech/double_phoneme/ehwy.wav]-', # ed
-        "-ER-WH-" : '-EH-[static/speech/double_phoneme/erwh.wav]-', # hurt 
-        "-EY-WH-" : '-EY-[static/speech/double_phoneme/eywh.wav]-', # ate
-        "-IH-WH-" : '-IH-[static/speech/double_phoneme/ihwh.wav]-', # it
-        "-IY-WH-" : '-IY-[static/speech/double_phoneme/iywh.wav]-', # eat
-        "-OW-WH-" : '-OW-[static/speech/double_phoneme/owwh.wav]-', # oat
-        "-OY-WH-" : '-OY-[static/speech/double_phoneme/oywh.wav]-', # toy
-        '-UH-WH-" : '-UH-[static/speech/double_phoneme/uhwh.wav]-',# hood   
-        '-UW-WH-" : '-UW-[static/speech/double_phoneme/uwwh.wav]-',# too
-
-
-        "-AA-Y-" : '-AA-[static/speech/double_phoneme/aay.wav]-', # odd 
-        "-AE-Y-" : '-AE[static/speech/double_phoneme/aey.wav]-', # at
-        "-AH-Y-" : '-AH-[static/speech/double_phoneme/ahy.wav]-', # hut     
-        "-AO-Y-" : '-AO-[static/speech/double_phoneme/aoy.wav]-', # ought
-        "-AW-Y-" : '-AW-[static/speech/double_phoneme/awy.wav]-', # cow
-        "-AY-Y-" : '-AY-[static/speech/double_phoneme/ayy.wav]-', # hide
-        "-EH-Y-" : '-EH-[static/speech/double_phoneme/ehy.wav]-', # ed
-        "-ER-Y-" : '-EH-[static/speech/double_phoneme/ery.wav]-', # hurt 
-        "-EY-Y-" : '-EY-[static/speech/double_phoneme/eyy.wav]-', # ate
-        "-IH-Y-" : '-IH-[static/speech/double_phoneme/ihy.wav]-', # it
-        "-IY-Y-" : '-IY-[static/speech/double_phoneme/iyy.wav]-', # eat
-        "-OW-Y-" : '-OW-[static/speech/double_phoneme/owy.wav]-', # oat
-        "-OY-Y-" : '-OY-[static/speech/double_phoneme/oyy.wav]-', # toy
-        '-UH-Y-" : '-UH-[static/speech/double_phoneme/uhy.wav]-',# hood   
-        '-UW-Y-" : '-UW-[static/speech/double_phoneme/uwy.wav]-',# too
-
-
-        "-AA-Z-" : '-AA-[static/speech/double_phoneme/aaz.wav]-', # odd 
-        "-AE-Z-" : '-AE[static/speech/double_phoneme/aez.wav]-', # at
-        "-AH-Z-" : '-AH-[static/speech/double_phoneme/ahz.wav]-', # hut     
-        "-AO-Z-" : '-AO-[static/speech/double_phoneme/aoz.wav]-', # ought
-        "-AW-Z-" : '-AW-[static/speech/double_phoneme/awz.wav]-', # cow
-        "-AY-Z-" : '-AY-[static/speech/double_phoneme/ayz.wav]-', # hide
-        "-EH-Z-" : '-EH-[static/speech/double_phoneme/ehz.wav]-', # ed
-        "-ER-Z-" : '-EH-[static/speech/double_phoneme/erz.wav]-', # hurt 
-        "-EY-Z-" : '-EY-[static/speech/double_phoneme/eyz.wav]-', # ate
-        "-IH-Z-" : '-IH-[static/speech/double_phoneme/ihz.wav]-', # it
-        "-IY-Z-" : '-IY-[static/speech/double_phoneme/iyz.wav]-', # eat
-        "-OW-Z-" : '-OW-[static/speech/double_phoneme/owz.wav]-', # oat
-        "-OY-Z-" : '-OY-[static/speech/double_phoneme/oyz.wav]-', # toy
-        '-UH-Z-" : '-UH-[static/speech/double_phoneme/uhz.wav]-',# hood   
-        '-UW-Z-" : '-UW-[static/speech/double_phoneme/uwz.wav]-',# too
-
-
-        "-AA-ZH-" : '-AA-[static/speech/double_phoneme/aazh.wav]-', # odd 
-        "-AE-ZH-" : '-AE[static/speech/double_phoneme/aezh.wav]-', # at
-        "-AH-ZH-" : '-AH-[static/speech/double_phoneme/ahzh.wav]-', # hut     
-        "-AO-ZH-" : '-AO-[static/speech/double_phoneme/aozh.wav]-', # ought
-        "-AW-ZH-" : '-AW-[static/speech/double_phoneme/awzh.wav]-', # cow
-        "-AY-ZH-" : '-AY-[static/speech/double_phoneme/ayzh.wav]-', # hide
-        "-EH-ZH-" : '-EH-[static/speech/double_phoneme/ehzh.wav]-', # ed
-        "-ER-ZH-" : '-EH-[static/speech/double_phoneme/erzh.wav]-', # hurt 
-        "-EY-ZH-" : '-EY-[static/speech/double_phoneme/eyzh.wav]-', # ate
-        "-IH-ZH-" : '-IH-[static/speech/double_phoneme/ihzh.wav]-', # it
-        "-IY-ZH-" : '-IY-[static/speech/double_phoneme/iyzh.wav]-', # eat
-        "-OW-ZH-" : '-OW-[static/speech/double_phoneme/owzh.wav]-', # oat
-        "-OY-ZH-" : '-OY-[static/speech/double_phoneme/oyzh.wav]-', # toy
-        '-UH-ZH-" : '-UH-[static/speech/double_phoneme/uhzh.wav]-',# hood   
-        '-UW-ZH-" : '-UW-[static/speech/double_phoneme/uwzh.wav]-',# too
-
-
+separate_words = {
+        " " : "-[static/speech/misc/blank.wav]-"
         }
 
-
+# consonant -> vowel
 hk_audio_phoneme_combo_beginnings = {
-        # consonant -> vowel
-        "-B-AA-" : "-[static/speech/double_phoneme/baa.wav]-", # robot #######
+        
+        "-B-AA-" : "-[static/speech/double_phoneme/baa.wav]-", # bow
         "-B-AE-" : "-[static/speech/double_phoneme/bae.wav]-", # bat
-        "-B-AH-" : "-[static/speech/double_phoneme/ah.wav]-", # butter ###########    
-        "-B-AO-" : "-[static/speech/double_phoneme/bao.wav]-", # aboard
-        "-B-AW-" : "-[static/speech/double_phoneme/baw.wav]-", # bow (respect)
-        "-B-AY-" : "-[static/speech/double_phoneme/bay.wav]-", # buy
+        "-B-AH-" : "-[static/speech/double_phoneme/baa.wav]-", # bow    
+        "-B-AO-" : "-[static/speech/double_phoneme/baa.wav]-", # bow
+        "-B-AW-" : "-[static/speech/double_phoneme/baa.wav]-", # bow
+        "-B-AY-" : "-[static/speech/double_phoneme/bay.wav]-", # buy - baai
         "-B-EH-" : "-[static/speech/double_phoneme/beh.wav]-", # ben
-        "-B-ER-" : "-[static/speech/double_phoneme/ber.wav]-", # bait
+        "-B-ER-" : "-[static/speech/double_phoneme/ber.wav]-", # bat - ba
         "-B-EY-" : "-[static/speech/double_phoneme/bey.wav]-", # bait
         "-B-IH-" : "-[static/speech/double_phoneme/bih.wav]-", # bit
-        "-B-IY-" : "-[static/speech/double_phoneme/biy.wav]-", # be
-        "-B-OW-" : "-[static/speech/double_phoneme/bow.wav]-", # boat
-        "-B-OY-" : "-[static/speech/double_phoneme/boy.wav]-", # boat ###### no boi or oy speech/double_phonemes
-        "-B-UH-" : "-[static/speech/double_phoneme/buh.wav]-", #'ou', #hood      HH UH D
-        "-B-UW-" : "-[static/speech/double_phoneme/buw.wav]-", #boo
-        
-        # for c: edit out silence
-        # and silence between words too!
-        # time log: 25
-        "-CH-AA-" : "-[static/speech/double_phoneme/chaa.wav]-", # chopper     
-        "-CH-AE-" : "-[static/speech/double_phoneme/chae.wav]-", # chat     
-        "-CH-AH-" : "-[static/speech/double_phoneme/chah.wav]-", # chutney    
-        "-CH-AO-" : "-[static/speech/double_phoneme/chao.wav]-", # chop 
-        "-CH-AW-" : "-[static/speech/double_phoneme/chaw.wav]-", # chow
-        "-CH-AY-" : "-[static/speech/double_phoneme/chay.wav]-", # china
-        "-CH-EH-" : "-[static/speech/double_phoneme/cheh.wav]-", # checkers
-        "-CH-ER-" : "-[static/speech/double_phoneme/cher.wav]-", # churn
-        "-CH-EY-" : "-[static/speech/double_phoneme/chey.wav]-", # change
-        "-CH-IH-" : "-[static/speech/double_phoneme/chih.wav]-", # ching
-        "-CH-IY-" : "-[static/speech/double_phoneme/chiy.wav]-", # cheese
-        "-CH-OW-" : "-[static/speech/double_phoneme/chou.wav]-", # choke
-        "-CH-OY-" : "-[static/speech/double_phoneme/choy.wav]-", # choice
-        "-CH-UH-" : "-[static/speech/double_phoneme/chuh.wav]-", # chuck
-        "-CH-UW-" : "-[static/speech/double_phoneme/chuw.wav]-", # chew
+        "-B-IY-" : "-[static/speech/double_phoneme/bey.wav]-", # bait
+        "-B-OW-" : "-[static/speech/double_phoneme/bow.wav]-", # go
+        "-B-OY-" : "-[static/speech/double_phoneme/boy.wav]-", # choice - choiee
+        "-B-UH-" : "-[static/speech/double_phoneme/buh.wav]-", # chuck
+        "-B-UW-" : "-[static/speech/double_phoneme/buw.wav]-", # few
 
-        # time log: 16
-        "-D-AA-" : "-[static/speech/double_phoneme/daa.wav]-", # chopper     
-        "-D-AE-" : "-[static/speech/double_phoneme/dae.wav]-", # chat     
-        "-D-AH-" : "-[static/speech/double_phoneme/dah.wav]-", # chutney    
-        "-D-AO-" : "-[static/speech/double_phoneme/dao.wav]-", # chop 
-        "-D-AW-" : "-[static/speech/double_phoneme/daw.wav]-", # chow
-        "-D-AY-" : "-[static/speech/double_phoneme/day.wav]-", # china
-        "-D-EH-" : "-[static/speech/double_phoneme/deh.wav]-", # checkers
-        "-D-ER-" : "-[static/speech/double_phoneme/der.wav]-", # churn
-        "-D-EY-" : "-[static/speech/double_phoneme/dey.wav]-", # change
-        "-D-IH-" : "-[static/speech/double_phoneme/dih.wav]-", # ching
-        "-D-IY-" : "-[static/speech/double_phoneme/diy.wav]-", # cheese
-        "-D-OW-" : "-[static/speech/double_phoneme/dow.wav]-", # choke
-        "-D-OY-" : "-[static/speech/double_phoneme/doy.wav]-", # choice
-        "-D-UH-" : "-[static/speech/double_phoneme/duh.wav]-", # chuck
-        "-D-UW-" : "-[static/speech/double_phoneme/duw.wav]-", # chew
-
-        # time log: 9
-        "-F-AA-" : "-[static/speech/double_phoneme/faa.wav]-", # chopper     
-        "-F-AE-" : "-[static/speech/double_phoneme/fae.wav]-", # chat     
-        "-F-AH-" : "-[static/speech/double_phoneme/fah.wav]-' # chutney      
-        "-F-AO-" : "-[static/speech/double_phoneme/fao.wav]-", # chop 
-        "-F-AW-" : "-[static/speech/double_phoneme/faw.wav]-", # chow
-        "-F-AY-" : "-[static/speech/double_phoneme/fay.wav]-", # china
-        "-F-EH-" : "-[static/speech/double_phoneme/feh.wav]-", # checkers
-        "-F-ER-" : "-[static/speech/double_phoneme/fer.wav]-", # churn
-        "-F-EY-" : "-[static/speech/double_phoneme/fey.wav]-", # change
-        "-F-IH-" : "-[static/speech/double_phoneme/fih.wav]-", # ching
-        "-F-IY-" : "-[static/speech/double_phoneme/fiy.wav]-", # cheese
-        "-F-OW-" : "-[static/speech/double_phoneme/fow.wav]-", # choke
-        "-F-OY-" : "-[static/speech/double_phoneme/foy.wav]-", # choice
-        "-F-UH-" : "-[static/speech/double_phoneme/fuh.wav]-", # chuck
-        "-F-UW-" : "-[static/speech/double_phoneme/fuw.wav]-", # chew
+        "-CH-AA-" : "-[static/speech/double_phoneme/chaa.wav]-",     
+        "-CH-AE-" : "-[static/speech/double_phoneme/chae.wav]-",  
+        "-CH-AH-" : "-[static/speech/double_phoneme/chaa.wav]-",   
+        "-CH-AO-" : "-[static/speech/double_phoneme/chaa.wav]-",
+        "-CH-AW-" : "-[static/speech/double_phoneme/chaa.wav]-",
+        "-CH-AY-" : "-[static/speech/double_phoneme/chay.wav]-",
+        "-CH-EH-" : "-[static/speech/double_phoneme/cheh.wav]-",
+        "-CH-ER-" : "-[static/speech/double_phoneme/cher.wav]-",
+        "-CH-EY-" : "-[static/speech/double_phoneme/chey.wav]-",
+        "-CH-IH-" : "-[static/speech/double_phoneme/chih.wav]-",
+        "-CH-IY-" : "-[static/speech/double_phoneme/chey.wav]-",
+        "-CH-OW-" : "-[static/speech/double_phoneme/chou.wav]-",
+        "-CH-OY-" : "-[static/speech/double_phoneme/choy.wav]-",
+        "-CH-UH-" : "-[static/speech/double_phoneme/chuh.wav]-",
+        "-CH-UW-" : "-[static/speech/double_phoneme/chuw.wav]-",
        
-        # time log: 12
-        "-G-AA-" : "-[static/speech/double_phoneme/gaa.wav]-", # chopper     
-        "-G-AE-" : "-[static/speech/double_phoneme/gae.wav]-", # chat     
-        "-G-AH-" : "-[static/speech/double_phoneme/gah.wav]-", # chutney    
-        "-G-AO-" : "-[static/speech/double_phoneme/gao.wav]-", # chop 
-        "-G-AW-" : "-[static/speech/double_phoneme/gaw.wav]-", # chow
-        "-G-AY-" : "-[static/speech/double_phoneme/gay.wav]-", # china
-        "-G-EH-" : "-[static/speech/double_phoneme/geh.wav]-", # checkers
-        "-G-ER-" : "-[static/speech/double_phoneme/ger.wav]-", # churn
-        "-G-EY-" : "-[static/speech/double_phoneme/gey.wav]-", # change
-        "-G-IH-" : "-[static/speech/double_phoneme/gih.wav]-", # ching
-        "-G-IY-" : "-[static/speech/double_phoneme/giy.wav]-", # cheese
-        "-G-OW-" : "-[static/speech/double_phoneme/gow.wav]-", # choke
-        "-G-OY-" : "-[static/speech/double_phoneme/goy.wav]-", # choice
-        "-G-UH-" : "-[static/speech/double_phoneme/guh.wav]-", # chuck
-        "-G-UW-" : "-[static/speech/double_phoneme/guw.wav]-", # chew
+        "-DH-AA-" : "-[static/speech/double_phoneme/daa.wav]-",     
+        "-DH-AE-" : "-[static/speech/double_phoneme/dae.wav]-",     
+        "-DH-AH-" : "-[static/speech/double_phoneme/daa.wav]-",    
+        "-DH-AO-" : "-[static/speech/double_phoneme/daa.wav]-",
+        "-DH-AW-" : "-[static/speech/double_phoneme/daa.wav]-",
+        "-DH-AY-" : "-[static/speech/double_phoneme/day.wav]-",
+        "-DH-EH-" : "-[static/speech/double_phoneme/deh.wav]-",
+        "-DH-ER-" : "-[static/speech/double_phoneme/der.wav]-",
+        "-DH-EY-" : "-[static/speech/double_phoneme/dey.wav]-",
+        "-DH-IH-" : "-[static/speech/double_phoneme/dih.wav]-",
+        "-DH-IY-" : "-[static/speech/double_phoneme/dey.wav]-",
+        "-DH-OW-" : "-[static/speech/double_phoneme/dow.wav]-",
+        "-DH-OY-" : "-[static/speech/double_phoneme/doy.wav]-",
+        "-DH-UH-" : "-[static/speech/double_phoneme/duh.wav]-",
+        "-DH-UW-" : "-[static/speech/double_phoneme/duw.wav]-",
 
-        # time log: 9
-        "-HH-AA-" : "-[static/speech/double_phoneme/haa.wav]-", # chopper     
-        "-HH-AE-" : "-[static/speech/double_phoneme/hae.wav]-", # chat     
-        "-HH-AH-" : "-[static/speech/double_phoneme/hah.wav]-", # chutney    
-        "-HH-AO-" : "-[static/speech/double_phoneme/hao.wav]-", # chop 
-        "-HH-AW-" : "-[static/speech/double_phoneme/haw.wav]-", # chow
-        "-HH-AY-" : "-[static/speech/double_phoneme/hay.wav]-", # china
-        "-HH-EH-" : "-[static/speech/double_phoneme/heh.wav]-", # checkers
-        "-HH-ER-" : "-[static/speech/double_phoneme/her.wav]-", # churn
-        "-HH-EY-" : "-[static/speech/double_phoneme/hey.wav]-", # change
-        "-HH-IH-" : "-[static/speech/double_phoneme/hih.wav]-", # ching
-        "-HH-IY-" : "-[static/speech/double_phoneme/hiy.wav]-", # cheese
-        "-HH-OW-" : "-[static/speech/double_phoneme/how.wav]-", # choke
-        "-HH-OY-" : "-[static/speech/double_phoneme/hoy.wav]-", # choice
-        "-HH-UH-" : "-[static/speech/double_phoneme/huh.wav]-", # chuck
-        "-HH-UW-" : "-[static/speech/double_phoneme/huw.wav]-", # chew
+        "-D-AA-" : "-[static/speech/double_phoneme/daa.wav]-", 
+        "-D-AE-" : "-[static/speech/double_phoneme/dae.wav]-",     
+        "-D-AH-" : "-[static/speech/double_phoneme/daa.wav]-",   
+        "-D-AO-" : "-[static/speech/double_phoneme/daa.wav]-", 
+        "-D-AW-" : "-[static/speech/double_phoneme/daa.wav]-",
+        "-D-AY-" : "-[static/speech/double_phoneme/day.wav]-",
+        "-D-EH-" : "-[static/speech/double_phoneme/deh.wav]-",
+        "-D-ER-" : "-[static/speech/double_phoneme/der.wav]-",
+        "-D-EY-" : "-[static/speech/double_phoneme/dey.wav]-",
+        "-D-IH-" : "-[static/speech/double_phoneme/dih.wav]-",
+        "-D-IY-" : "-[static/speech/double_phoneme/dey.wav]-",
+        "-D-OW-" : "-[static/speech/double_phoneme/dow.wav]-",
+        "-D-OY-" : "-[static/speech/double_phoneme/doy.wav]-",
+        "-D-UH-" : "-[static/speech/double_phoneme/duh.wav]-",
+        "-D-UW-" : "-[static/speech/double_phoneme/duw.wav]-",
 
-        # time log: 9
-        "-JH-AA-" : "-[static/speech/double_phoneme/jaa.wav]-", # chopper     
-        "-JH-AE-" : "-[static/speech/double_phoneme/jae.wav]-", # chat     
-        "-JH-AH-" : "-[static/speech/double_phoneme/jah.wav]-", # chutney    
-        "-JH-AO-" : "-[static/speech/double_phoneme/jao.wav]-", # chop 
-        "-JH-AW-" : "-[static/speech/double_phoneme/jaw.wav]-", # chow
-        "-JH-AY-" : "-[static/speech/double_phoneme/jay.wav]-", # china
-        "-JH-EH-" : "-[static/speech/double_phoneme/jeh.wav]-", # checkers
-        "-JH-ER-" : "-[static/speech/double_phoneme/jer.wav]-", # churn
-        "-JH-EY-" : "-[static/speech/double_phoneme/jey.wav]-", # change
-        "-JH-IH-" : "-[static/speech/double_phoneme/jih.wav]-", # ching
-        "-JH-IY-" : "-[static/speech/double_phoneme/jiy.wav]-", # cheese
-        "-JH-OW-" : "-[static/speech/double_phoneme/jow.wav]-", # choke
-        "-JH-OY-" : "-[static/speech/double_phoneme/joy.wav]-", # choice
-        "-JH-UH-" : "-[static/speech/double_phoneme/juh.wav]-", # chuck
-        "-JH-UW-" : "-[static/speech/double_phoneme/juw.wav]-", # chew
+        "-F-AA-" : "-[static/speech/double_phoneme/faa.wav]-",
+        "-F-AE-" : "-[static/speech/double_phoneme/fae.wav]-",  
+        "-F-AH-" : "-[static/speech/double_phoneme/faa.wav]-",    
+        "-F-AO-" : "-[static/speech/double_phoneme/faa.wav]-",
+        "-F-AW-" : "-[static/speech/double_phoneme/faa.wav]-",
+        "-F-AY-" : "-[static/speech/double_phoneme/fay.wav]-",
+        "-F-EH-" : "-[static/speech/double_phoneme/feh.wav]-",
+        "-F-ER-" : "-[static/speech/double_phoneme/fer.wav]-",
+        "-F-EY-" : "-[static/speech/double_phoneme/fey.wav]-",
+        "-F-IH-" : "-[static/speech/double_phoneme/fih.wav]-",
+        "-F-IY-" : "-[static/speech/double_phoneme/fey.wav]-", 
+        "-F-OW-" : "-[static/speech/double_phoneme/fow.wav]-",
+        "-F-OY-" : "-[static/speech/double_phoneme/foy.wav]-",
+        "-F-UH-" : "-[static/speech/double_phoneme/fuh.wav]-",
+        "-F-UW-" : "-[static/speech/double_phoneme/fuw.wav]-",
+       
+        "-G-AA-" : "-[static/speech/double_phoneme/gaa.wav]-",     
+        "-G-AE-" : "-[static/speech/double_phoneme/gae.wav]-", 
+        "-G-AH-" : "-[static/speech/double_phoneme/gaa.wav]-",   
+        "-G-AO-" : "-[static/speech/double_phoneme/gaa.wav]-",
+        "-G-AW-" : "-[static/speech/double_phoneme/gaa.wav]-",
+        "-G-AY-" : "-[static/speech/double_phoneme/gay.wav]-", 
+        "-G-EH-" : "-[static/speech/double_phoneme/geh.wav]-",
+        "-G-ER-" : "-[static/speech/double_phoneme/ger.wav]-",
+        "-G-EY-" : "-[static/speech/double_phoneme/gey.wav]-",
+        "-G-IH-" : "-[static/speech/double_phoneme/gih.wav]-",
+        "-G-IY-" : "-[static/speech/double_phoneme/gey.wav]-",
+        "-G-OW-" : "-[static/speech/double_phoneme/gow.wav]-", 
+        "-G-OY-" : "-[static/speech/double_phoneme/goy.wav]-",
+        "-G-UH-" : "-[static/speech/double_phoneme/guh.wav]-", 
+        "-G-UW-" : "-[static/speech/double_phoneme/guw.wav]-",
 
-        # time log: 9
-        "-K-AA-" : "-[static/speech/double_phoneme/kaa.wav]-", # chopper     
-        "-K-AE-" : "-[static/speech/double_phoneme/kae.wav]-", # chat     
-        "-K-AH-" : "-[static/speech/double_phoneme/kah.wav]-", # chutney    
-        "-K-AO-" : "-[static/speech/double_phoneme/kao.wav]-", # chop 
-        "-K-AW-" : "-[static/speech/double_phoneme/kaw.wav]-", # chow
-        "-K-AY-" : "-[static/speech/double_phoneme/kay.wav]-", # china
-        "-K-EH-" : "-[static/speech/double_phoneme/keh.wav]-", # checkers
-        "-K-ER-" : "-[static/speech/double_phoneme/ker.wav]-", # churn
-        "-K-EY-" : "-[static/speech/double_phoneme/key.wav]-", # change
-        "-K-IH-" : "-[static/speech/double_phoneme/kih.wav]-", # ching
-        "-K-IY-" : "-[static/speech/double_phoneme/kiy.wav]-", # cheese
-        "-K-OW-" : "-[static/speech/double_phoneme/kow.wav]-", # choke
-        "-K-OY-" : "-[static/speech/double_phoneme/koy.wav]-", # choice
-        "-K-UH-" : "-[static/speech/double_phoneme/kuh.wav]-", # chuck
-        "-K-UW-" : "-[static/speech/double_phoneme/kuw.wav]-", # chew
+        "-HH-AA-" : "-[static/speech/double_phoneme/haa.wav]-",      
+        "-HH-AE-" : "-[static/speech/double_phoneme/hae.wav]-",    
+        "-HH-AH-" : "-[static/speech/double_phoneme/haa.wav]-",    
+        "-HH-AO-" : "-[static/speech/double_phoneme/haa.wav]-",
+        "-HH-AW-" : "-[static/speech/double_phoneme/haa.wav]-",
+        "-HH-AY-" : "-[static/speech/double_phoneme/hay.wav]-",
+        "-HH-EH-" : "-[static/speech/double_phoneme/heh.wav]-",
+        "-HH-ER-" : "-[static/speech/double_phoneme/her.wav]-", 
+        "-HH-EY-" : "-[static/speech/double_phoneme/hey.wav]-",
+        "-HH-IH-" : "-[static/speech/double_phoneme/hih.wav]-", 
+        "-HH-IY-" : "-[static/speech/double_phoneme/hey.wav]-",
+        "-HH-OW-" : "-[static/speech/double_phoneme/how.wav]-",
+        "-HH-OY-" : "-[static/speech/double_phoneme/hoy.wav]-",
+        "-HH-UH-" : "-[static/speech/double_phoneme/huh.wav]-",
+        "-HH-UW-" : "-[static/speech/double_phoneme/huw.wav]-", 
 
-        # time log: 9
-        "-L-AA-" : "-[static/speech/double_phoneme/laa.wav]-", # chopper     
-        "-L-AE-" : "-[static/speech/double_phoneme/lae.wav]-", # chat     
-        "-L-AH-" : "-[static/speech/double_phoneme/lah.wav]-", # chutney    
-        "-L-AO-" : "-[static/speech/double_phoneme/lao.wav]-", # chop 
-        "-L-AW-" : "-[static/speech/double_phoneme/law.wav]-", # chow
-        "-L-AY-" : "-[static/speech/double_phoneme/lay.wav]-", # china
-        "-L-EH-" : "-[static/speech/double_phoneme/leh.wav]-", # checkers
-        "-L-ER-" : "-[static/speech/double_phoneme/ler.wav]-", # churn
-        "-L-EY-" : "-[static/speech/double_phoneme/ley.wav]-", # change
-        "-L-IH-" : "-[static/speech/double_phoneme/lih.wav]-", # ching
-        "-L-IY-" : "-[static/speech/double_phoneme/liy.wav]-", # cheese
-        "-L-OW-" : "-[static/speech/double_phoneme/low.wav]-", # choke
-        "-L-OY-" : "-[static/speech/double_phoneme/loy.wav]-", # choice
-        "-L-UH-" : "-[static/speech/double_phoneme/luh.wav]-", # chuck
-        "-L-UW-" : "-[static/speech/double_phoneme/luw.wav]-", # chew
+        "-JH-AA-" : "-[static/speech/double_phoneme/jaa.wav]-",
+        "-JH-AE-" : "-[static/speech/double_phoneme/jae.wav]-", 
+        "-JH-AH-" : "-[static/speech/double_phoneme/jaa.wav]-",  
+        "-JH-AO-" : "-[static/speech/double_phoneme/jaa.wav]-", 
+        "-JH-AW-" : "-[static/speech/double_phoneme/jaa.wav]-", 
+        "-JH-AY-" : "-[static/speech/double_phoneme/jay.wav]-", 
+        "-JH-EH-" : "-[static/speech/double_phoneme/jeh.wav]-",
+        "-JH-ER-" : "-[static/speech/double_phoneme/jer.wav]-", 
+        "-JH-EY-" : "-[static/speech/double_phoneme/jey.wav]-",
+        "-JH-IH-" : "-[static/speech/double_phoneme/jih.wav]-",
+        "-JH-IY-" : "-[static/speech/double_phoneme/jey.wav]-",
+        "-JH-OW-" : "-[static/speech/double_phoneme/jow.wav]-",
+        "-JH-OY-" : "-[static/speech/double_phoneme/joy.wav]-",
+        "-JH-UH-" : "-[static/speech/double_phoneme/juh.wav]-", 
+        "-JH-UW-" : "-[static/speech/double_phoneme/juw.wav]-",
 
-        # time log: 9
-        "-M-AA-" : "-[static/speech/double_phoneme/maa.wav]-", # chopper     
-        "-M-AE-" : "-[static/speech/double_phoneme/mae.wav]-", # chat     
-        "-M-AH-" : "-[static/speech/double_phoneme/mah.wav]-", # chutney    
-        "-M-AO-" : "-[static/speech/double_phoneme/mao.wav]-", # chop 
-        "-M-AW-" : "-[static/speech/double_phoneme/maw.wav]-", # chow
-        "-M-AY-" : "-[static/speech/double_phoneme/may.wav]-", # china
-        "-M-EH-" : "-[static/speech/double_phoneme/meh.wav]-", # checkers
-        "-M-ER-" : "-[static/speech/double_phoneme/mer.wav]-", # churn
-        "-M-EY-" : "-[static/speech/double_phoneme/mey.wav]-", # change
-        "-M-IH-" : "-[static/speech/double_phoneme/mih.wav]-", # ching
-        "-M-IY-" : "-[static/speech/double_phoneme/miy.wav]-", # cheese
-        "-M-OW-" : "-[static/speech/double_phoneme/mow.wav]-", # choke
-        "-M-OY-" : "-[static/speech/double_phoneme/moy.wav]-", # choice
-        "-M-UH-" : "-[static/speech/double_phoneme/muh.wav]-", # chuck
-        "-M-UW-" : "-[static/speech/double_phoneme/muw.wav]-", # chew
+        "-K-AA-" : "-[static/speech/double_phoneme/kaa.wav]-",     
+        "-K-AE-" : "-[static/speech/double_phoneme/kae.wav]-", 
+        "-K-AH-" : "-[static/speech/double_phoneme/kaa.wav]-",  
+        "-K-AO-" : "-[static/speech/double_phoneme/kaa.wav]-",
+        "-K-AW-" : "-[static/speech/double_phoneme/kaa.wav]-",
+        "-K-AY-" : "-[static/speech/double_phoneme/kay.wav]-",
+        "-K-EH-" : "-[static/speech/double_phoneme/keh.wav]-", 
+        "-K-ER-" : "-[static/speech/double_phoneme/ker.wav]-",
+        "-K-EY-" : "-[static/speech/double_phoneme/key.wav]-",
+        "-K-IH-" : "-[static/speech/double_phoneme/kih.wav]-",
+        "-K-IY-" : "-[static/speech/double_phoneme/key.wav]-",
+        "-K-OW-" : "-[static/speech/double_phoneme/kow.wav]-", 
+        "-K-OY-" : "-[static/speech/double_phoneme/koy.wav]-",
+        "-K-UH-" : "-[static/speech/double_phoneme/kuh.wav]-",
+        "-K-UW-" : "-[static/speech/double_phoneme/kuw.wav]-", 
+
+        "-L-AA-" : "-[static/speech/double_phoneme/laa.wav]-",     
+        "-L-AE-" : "-[static/speech/double_phoneme/lae.wav]-",    
+        "-L-AH-" : "-[static/speech/double_phoneme/laa.wav]-",   
+        "-L-AO-" : "-[static/speech/double_phoneme/laa.wav]-", 
+        "-L-AW-" : "-[static/speech/double_phoneme/laa.wav]-",
+        "-L-AY-" : "-[static/speech/double_phoneme/lay.wav]-", 
+        "-L-EH-" : "-[static/speech/double_phoneme/leh.wav]-", 
+        "-L-ER-" : "-[static/speech/double_phoneme/ler.wav]-", 
+        "-L-EY-" : "-[static/speech/double_phoneme/ley.wav]-", 
+        "-L-IH-" : "-[static/speech/double_phoneme/lih.wav]-", 
+        "-L-IY-" : "-[static/speech/double_phoneme/ley.wav]-", 
+        "-L-OW-" : "-[static/speech/double_phoneme/low.wav]-", 
+        "-L-OY-" : "-[static/speech/double_phoneme/loy.wav]-", 
+        "-L-UH-" : "-[static/speech/double_phoneme/luh.wav]-", 
+        "-L-UW-" : "-[static/speech/double_phoneme/luw.wav]-", 
+
+        "-M-AA-" : "-[static/speech/double_phoneme/maa.wav]-",      
+        "-M-AE-" : "-[static/speech/double_phoneme/mae.wav]-",      
+        "-M-AH-" : "-[static/speech/double_phoneme/maa.wav]-",     
+        "-M-AO-" : "-[static/speech/double_phoneme/maa.wav]-",  
+        "-M-AW-" : "-[static/speech/double_phoneme/maa.wav]-", 
+        "-M-AY-" : "-[static/speech/double_phoneme/may.wav]-", 
+        "-M-EH-" : "-[static/speech/double_phoneme/meh.wav]-", 
+        "-M-ER-" : "-[static/speech/double_phoneme/mer.wav]-", 
+        "-M-EY-" : "-[static/speech/double_phoneme/mey.wav]-", 
+        "-M-IH-" : "-[static/speech/double_phoneme/mih.wav]-", 
+        "-M-IY-" : "-[static/speech/double_phoneme/mey.wav]-", 
+        "-M-OW-" : "-[static/speech/double_phoneme/mow.wav]-", 
+        "-M-OY-" : "-[static/speech/double_phoneme/moy.wav]-", 
+        "-M-UH-" : "-[static/speech/double_phoneme/muh.wav]-", 
+        "-M-UW-" : "-[static/speech/double_phoneme/muw.wav]-", 
      
-        # time log: 9
-        "-N-AA-" : "-[static/speech/double_phoneme/naa.wav]-", # chopper     
-        "-N-AE-" : "-[static/speech/double_phoneme/nae.wav]-", # chat     
-        "-N-AH-" : "-[static/speech/double_phoneme/nah.wav]-", # chutney    
-        "-N-AO-" : "-[static/speech/double_phoneme/nao.wav]-", # chop 
-        "-N-AW-" : "-[static/speech/double_phoneme/naw.wav]-", # chow
-        "-N-AY-" : "-[static/speech/double_phoneme/nay.wav]-", # china
-        "-N-EH-" : "-[static/speech/double_phoneme/neh.wav]-", # checkers
-        "-N-ER-" : "-[static/speech/double_phoneme/ner.wav]-", # churn
-        "-N-EY-" : "-[static/speech/double_phoneme/ney.wav]-", # change
-        "-N-IH-" : "-[static/speech/double_phoneme/nih.wav]-", # ching
-        "-N-IY-" : "-[static/speech/double_phoneme/niy.wav]-", # cheese
-        "-N-OW-" : "-[static/speech/double_phoneme/now.wav]-", # choke
-        "-N-OY-" : "-[static/speech/double_phoneme/noy.wav]-", # choice
-        "-N-UH-" : "-[static/speech/double_phoneme/nuh.wav]-", # chuck
-        "-N-UW-" : "-[static/speech/double_phoneme/nuw.wav]-", # chew
+        "-N-AA-" : "-[static/speech/double_phoneme/naa.wav]-",      
+        "-N-AE-" : "-[static/speech/double_phoneme/nae.wav]-",      
+        "-N-AH-" : "-[static/speech/double_phoneme/naa.wav]-",     
+        "-N-AO-" : "-[static/speech/double_phoneme/naa.wav]-",  
+        "-N-AW-" : "-[static/speech/double_phoneme/naa.wav]-", 
+        "-N-AY-" : "-[static/speech/double_phoneme/nay.wav]-", 
+        "-N-EH-" : "-[static/speech/double_phoneme/neh.wav]-", 
+        "-N-ER-" : "-[static/speech/double_phoneme/ner.wav]-", 
+        "-N-EY-" : "-[static/speech/double_phoneme/ney.wav]-", 
+        "-N-IH-" : "-[static/speech/double_phoneme/nih.wav]-", 
+        "-N-IY-" : "-[static/speech/double_phoneme/ney.wav]-", 
+        "-N-OW-" : "-[static/speech/double_phoneme/now.wav]-", 
+        "-N-OY-" : "-[static/speech/double_phoneme/noy.wav]-", 
+        "-N-UH-" : "-[static/speech/double_phoneme/nuh.wav]-", 
+        "-N-UW-" : "-[static/speech/double_phoneme/nuw.wav]-", 
 
-        # time log: 9
-        "-P-AA-" : "-[static/speech/double_phoneme/paa.wav]-", # chopper     
-        "-P-AE-" : "-[static/speech/double_phoneme/pae.wav]-", # chat     
-        "-P-AH-" : "-[static/speech/double_phoneme/pah.wav]-", # chutney    
-        "-P-AO-" : "-[static/speech/double_phoneme/pao.wav]-", # chop 
-        "-P-AW-" : "-[static/speech/double_phoneme/paw.wav]-", # chow
-        "-P-AY-" : "-[static/speech/double_phoneme/pay.wav]-", # china
-        "-P-EH-" : "-[static/speech/double_phoneme/peh.wav]-", # checkers
-        "-P-ER-" : "-[static/speech/double_phoneme/per.wav]-", # churn
-        "-P-EY-" : "-[static/speech/double_phoneme/pey.wav]-", # change
-        "-P-IH-" : "-[static/speech/double_phoneme/pih.wav]-", # ching
-        "-P-IY-" : "-[static/speech/double_phoneme/piy.wav]-", # cheese
-        "-P-OW-" : "-[static/speech/double_phoneme/pow.wav]-", # choke
-        "-P-OY-" : "-[static/speech/double_phoneme/poy.wav]-", # choice
-        "-P-UH-" : "-[static/speech/double_phoneme/puh.wav]-", # chuck
-        "-P-UW-" : "-[static/speech/double_phoneme/puw.wav]-", # chew
+        "-P-AA-" : "-[static/speech/double_phoneme/paa.wav]-",      
+        "-P-AE-" : "-[static/speech/double_phoneme/pae.wav]-",      
+        "-P-AH-" : "-[static/speech/double_phoneme/paa.wav]-",     
+        "-P-AO-" : "-[static/speech/double_phoneme/paa.wav]-",  
+        "-P-AW-" : "-[static/speech/double_phoneme/paa.wav]-", 
+        "-P-AY-" : "-[static/speech/double_phoneme/pay.wav]-", 
+        "-P-EH-" : "-[static/speech/double_phoneme/peh.wav]-", 
+        "-P-ER-" : "-[static/speech/double_phoneme/.wav]-", 
+        "-P-EY-" : "-[static/speech/double_phoneme/pey.wav]-", 
+        "-P-IH-" : "-[static/speech/double_phoneme/pih.wav]-", 
+        "-P-IY-" : "-[static/speech/double_phoneme/pey.wav]-", 
+        "-P-OW-" : "-[static/speech/double_phoneme/pow.wav]-", 
+        "-P-OY-" : "-[static/speech/double_phoneme/poy.wav]-", 
+        "-P-UH-" : "-[static/speech/double_phoneme/puh.wav]-", 
+        "-P-UW-" : "-[static/speech/double_phoneme/puw.wav]-", 
 
-        # time log: 9
-        "-R-AA-" : "-[static/speech/double_phoneme/raa.wav]-", # chopper     
-        "-R-AE-" : "-[static/speech/double_phoneme/rae.wav]-", # chat     
-        "-R-AH-" : "-[static/speech/double_phoneme/rah.wav]-", # chutney    
-        "-R-AO-" : "-[static/speech/double_phoneme/rao.wav]-", # chop 
-        "-R-AW-" : "-[static/speech/double_phoneme/raw.wav]-", # chow
-        "-R-AY-" : "-[static/speech/double_phoneme/ray.wav]-", # china
-        "-R-EH-" : "-[static/speech/double_phoneme/reh.wav]-", # checkers
-        "-R-ER-" : "-[static/speech/double_phoneme/rer.wav]-", # churn
-        "-R-EY-" : "-[static/speech/double_phoneme/rey.wav]-", # change
-        "-R-IH-" : "-[static/speech/double_phoneme/rih.wav]-", # ching
-        "-R-IY-" : "-[static/speech/double_phoneme/riy.wav]-", # cheese
-        "-R-OW-" : "-[static/speech/double_phoneme/row.wav]-", # choke
-        "-R-OY-" : "-[static/speech/double_phoneme/roy.wav]-", # choice
-        "-R-UH-" : "-[static/speech/double_phoneme/ruh.wav]-", # chuck
-        "-R-UW-" : "-[static/speech/double_phoneme/ruw.wav]-", # chew
+        "-R-AA-" : "-[static/speech/double_phoneme/raa.wav]-",      
+        "-R-AE-" : "-[static/speech/double_phoneme/rae.wav]-",      
+        "-R-AH-" : "-[static/speech/double_phoneme/raa.wav]-",     
+        "-R-AO-" : "-[static/speech/double_phoneme/raa.wav]-",  
+        "-R-AW-" : "-[static/speech/double_phoneme/raa.wav]-", 
+        "-R-AY-" : "-[static/speech/double_phoneme/ray.wav]-", 
+        "-R-EH-" : "-[static/speech/double_phoneme/reh.wav]-", 
+        "-R-ER-" : "-[static/speech/double_phoneme/rer.wav]-", 
+        "-R-EY-" : "-[static/speech/double_phoneme/rey.wav]-", 
+        "-R-IH-" : "-[static/speech/double_phoneme/rih.wav]-", 
+        "-R-IY-" : "-[static/speech/double_phoneme/rey.wav]-", 
+        "-R-OW-" : "-[static/speech/double_phoneme/row.wav]-", 
+        "-R-OY-" : "-[static/speech/double_phoneme/roy.wav]-", 
+        "-R-UH-" : "-[static/speech/double_phoneme/ruh.wav]-", 
+        "-R-UW-" : "-[static/speech/double_phoneme/ruw.wav]-", 
 
-        # time log: 9
-        "-S-AA-" : "-[static/speech/double_phoneme/saa.wav]-", # chopper     
-        "-S-AE-" : "-[static/speech/double_phoneme/sae.wav]-", # chat     
-        "-S-AH-" : "-[static/speech/double_phoneme/sah.wav]-", # chutney    
-        "-S-AO-" : "-[static/speech/double_phoneme/sao.wav]-", # chop 
-        "-S-AW-" : "-[static/speech/double_phoneme/saw.wav]-", # chow
-        "-S-AY-" : "-[static/speech/double_phoneme/say.wav]-", # china
-        "-S-EH-" : "-[static/speech/double_phoneme/seh.wav]-", # checkers
-        "-S-ER-" : "-[static/speech/double_phoneme/ser.wav]-", # churn
-        "-S-EY-" : "-[static/speech/double_phoneme/sey.wav]-", # change
-        "-S-IH-" : "-[static/speech/double_phoneme/sih.wav]-", # ching
-        "-S-IY-" : "-[static/speech/double_phoneme/siy.wav]-", # cheese
-        "-S-OW-" : "-[static/speech/double_phoneme/sow.wav]-", # choke
-        "-S-OY-" : "-[static/speech/double_phoneme/soy.wav]-", # choice
-        "-S-UH-" : "-[static/speech/double_phoneme/suh.wav]-", # chuck
-        "-S-UW-" : "-[static/speech/double_phoneme/suw.wav]-", # chew
+        "-S-AA-" : "-[static/speech/double_phoneme/saa.wav]-",      
+        "-S-AE-" : "-[static/speech/double_phoneme/sae.wav]-",      
+        "-S-AH-" : "-[static/speech/double_phoneme/saa.wav]-",     
+        "-S-AO-" : "-[static/speech/double_phoneme/saa.wav]-",  
+        "-S-AW-" : "-[static/speech/double_phoneme/saa.wav]-", 
+        "-S-AY-" : "-[static/speech/double_phoneme/say.wav]-", 
+        "-S-EH-" : "-[static/speech/double_phoneme/seh.wav]-", 
+        "-S-ER-" : "-[static/speech/double_phoneme/ser.wav]-", 
+        "-S-EY-" : "-[static/speech/double_phoneme/sey.wav]-", 
+        "-S-IH-" : "-[static/speech/double_phoneme/sih.wav]-", 
+        "-S-IY-" : "-[static/speech/double_phoneme/sey.wav]-", 
+        "-S-OW-" : "-[static/speech/double_phoneme/sow.wav]-", 
+        "-S-OY-" : "-[static/speech/double_phoneme/soy.wav]-", 
+        "-S-UH-" : "-[static/speech/double_phoneme/suh.wav]-", 
+        "-S-UW-" : "-[static/speech/double_phoneme/suw.wav]-", 
         
-        # time log: 9
-        "-SH-AA-" : "-[static/speech/double_phoneme/shaa.wav]-", # chopper     
-        "-SH-AE-" : "-[static/speech/double_phoneme/shae.wav]-", # chat     
-        "-SH-AH-" : "-[static/speech/double_phoneme/shah.wav]-", # chutney    
-        "-SH-AO-" : "-[static/speech/double_phoneme/shao.wav]-", # chop 
-        "-SH-AW-" : "-[static/speech/double_phoneme/shaw.wav]-", # chow
-        "-SH-AY-" : "-[static/speech/double_phoneme/shay.wav]-", # china
-        "-SH-EH-" : "-[static/speech/double_phoneme/sheh.wav]-", # checkers
-        "-SH-ER-" : "-[static/speech/double_phoneme/sher.wav]-", # churn
-        "-SH-EY-" : "-[static/speech/double_phoneme/shey.wav]-", # change
-        "-SH-IH-" : "-[static/speech/double_phoneme/shih.wav]-", # ching
-        "-SH-IY-" : "-[static/speech/double_phoneme/shiy.wav]-", # cheese
-        "-SH-OW-" : "-[static/speech/double_phoneme/show.wav]-", # choke
-        "-SH-OY-" : "-[static/speech/double_phoneme/shoy.wav]-", # choice
-        "-SH-UH-" : "-[static/speech/double_phoneme/shuh.wav]-", # chuck
-        "-SH-UW-" : "-[static/speech/double_phoneme/shuw.wav]-", # chew
+        "-SH-AA-" : "-[static/speech/double_phoneme/shaa.wav]-",      
+        "-SH-AE-" : "-[static/speech/double_phoneme/shae.wav]-",      
+        "-SH-AH-" : "-[static/speech/double_phoneme/shaa.wav]-",     
+        "-SH-AO-" : "-[static/speech/double_phoneme/shaa.wav]-",  
+        "-SH-AW-" : "-[static/speech/double_phoneme/shaa.wav]-", 
+        "-SH-AY-" : "-[static/speech/double_phoneme/shay.wav]-", 
+        "-SH-EH-" : "-[static/speech/double_phoneme/sheh.wav]-", 
+        "-SH-ER-" : "-[static/speech/double_phoneme/sher.wav]-", 
+        "-SH-EY-" : "-[static/speech/double_phoneme/shey.wav]-", 
+        "-SH-IH-" : "-[static/speech/double_phoneme/shih.wav]-", 
+        "-SH-IY-" : "-[static/speech/double_phoneme/shey.wav]-", 
+        "-SH-OW-" : "-[static/speech/double_phoneme/show.wav]-", 
+        "-SH-OY-" : "-[static/speech/double_phoneme/shoy.wav]-", 
+        "-SH-UH-" : "-[static/speech/double_phoneme/shuh.wav]-", 
+        "-SH-UW-" : "-[static/speech/double_phoneme/shuw.wav]-", 
 
-        # time log: 9
-        "-T-AA-" : "-[static/speech/double_phoneme/taa.wav]-", # chopper     
-        "-T-AE-" : "-[static/speech/double_phoneme/tae.wav]-", # chat     
-        "-T-AH-" : "-[static/speech/double_phoneme/tah.wav]-", # chutney    
-        "-T-AO-" : "-[static/speech/double_phoneme/tao.wav]-", # chop 
-        "-T-AW-" : "-[static/speech/double_phoneme/taw.wav]-", # chow
-        "-T-AY-" : "-[static/speech/double_phoneme/tay.wav]-", # china
-        "-T-EH-" : "-[static/speech/double_phoneme/teh.wav]-", # checkers
-        "-T-ER-" : "-[static/speech/double_phoneme/ter.wav]-", # churn
-        "-T-EY-" : "-[static/speech/double_phoneme/tey.wav]-", # change
-        "-T-IH-" : "-[static/speech/double_phoneme/tih.wav]-", # ching
-        "-T-IY-" : "-[static/speech/double_phoneme/tiy.wav]-", # cheese
-        "-T-OW-" : "-[static/speech/double_phoneme/tow.wav]-", # choke
-        "-T-OY-" : "-[static/speech/double_phoneme/toy.wav]-", # choice
-        "-T-UH-" : "-[static/speech/double_phoneme/tuh.wav]-", # chuck
-        "-T-UW-" : "-[static/speech/double_phoneme/tuw.wav]-", # chew
+        "-T-AA-" : "-[static/speech/double_phoneme/taa.wav]-",      
+        "-T-AE-" : "-[static/speech/double_phoneme/tae.wav]-",      
+        "-T-AH-" : "-[static/speech/double_phoneme/taa.wav]-",     
+        "-T-AO-" : "-[static/speech/double_phoneme/taa.wav]-",  
+        "-T-AW-" : "-[static/speech/double_phoneme/taa.wav]-", 
+        "-T-AY-" : "-[static/speech/double_phoneme/tay.wav]-", 
+        "-T-EH-" : "-[static/speech/double_phoneme/teh.wav]-", 
+        "-T-ER-" : "-[static/speech/double_phoneme/ter.wav]-", 
+        "-T-EY-" : "-[static/speech/double_phoneme/tey.wav]-", 
+        "-T-IH-" : "-[static/speech/double_phoneme/tih.wav]-", 
+        "-T-IY-" : "-[static/speech/double_phoneme/tey.wav]-", 
+        "-T-OW-" : "-[static/speech/double_phoneme/tow.wav]-", 
+        "-T-OY-" : "-[static/speech/double_phoneme/toy.wav]-", 
+        "-T-UH-" : "-[static/speech/double_phoneme/tuh.wav]-", 
+        "-T-UW-" : "-[static/speech/double_phoneme/tuw.wav]-", 
         
-        # time log: 9
-        "-TH-AA-" : "-[static/speech/double_phoneme/thaa.wav]-", # chopper     
-        "-TH-AE-" : "-[static/speech/double_phoneme/thae.wav]-", # chat     
-        "-TH-AH-" : "-[static/speech/double_phoneme/thah.wav]-", # chutney    
-        "-TH-AO-" : "-[static/speech/double_phoneme/thao.wav]-", # chop 
-        "-TH-AW-" : "-[static/speech/double_phoneme/thaw.wav]-", # chow
-        "-TH-AY-" : "-[static/speech/double_phoneme/thay.wav]-", # china
-        "-TH-EH-" : "-[static/speech/double_phoneme/theh.wav]-", # checkers
-        "-TH-ER-" : "-[static/speech/double_phoneme/ther.wav]-", # churn
-        "-TH-EY-" : "-[static/speech/double_phoneme/they.wav]-", # change
-        "-TH-IH-" : "-[static/speech/double_phoneme/thih.wav]-", # ching
-        "-TH-IY-" : "-[static/speech/double_phoneme/thiy.wav]-", # cheese
-        "-TH-OW-" : "-[static/speech/double_phoneme/thow.wav]-", # choke
-        "-TH-OY-" : "-[static/speech/double_phoneme/thoy.wav]-", # choice
-        "-TH-UH-" : "-[static/speech/double_phoneme/thuh.wav]-", # chuck
-        "-TH-UW-" : "-[static/speech/double_phoneme/thuw.wav]-", # chew
+        "-TH-AA-" : "-[static/speech/double_phoneme/thaa.wav]-",      
+        "-TH-AE-" : "-[static/speech/double_phoneme/thae.wav]-",      
+        "-TH-AH-" : "-[static/speech/double_phoneme/thaa.wav]-",     
+        "-TH-AO-" : "-[static/speech/double_phoneme/thaa.wav]-",  
+        "-TH-AW-" : "-[static/speech/double_phoneme/thaa.wav]-", 
+        "-TH-AY-" : "-[static/speech/double_phoneme/thay.wav]-", 
+        "-TH-EH-" : "-[static/speech/double_phoneme/theh.wav]-", 
+        "-TH-ER-" : "-[static/speech/double_phoneme/ther.wav]-", 
+        "-TH-EY-" : "-[static/speech/double_phoneme/they.wav]-", 
+        "-TH-IH-" : "-[static/speech/double_phoneme/thih.wav]-", 
+        "-TH-IY-" : "-[static/speech/double_phoneme/they.wav]-", 
+        "-TH-OW-" : "-[static/speech/double_phoneme/thow.wav]-", 
+        "-TH-OY-" : "-[static/speech/double_phoneme/thoy.wav]-", 
+        "-TH-UH-" : "-[static/speech/double_phoneme/thuh.wav]-", 
+        "-TH-UW-" : "-[static/speech/double_phoneme/thuw.wav]-", 
 
+        "-V-AA-" : "-[static/speech/double_phoneme/vaa.wav]-",      
+        "-V-AE-" : "-[static/speech/double_phoneme/vae.wav]-",      
+        "-V-AH-" : "-[static/speech/double_phoneme/vaa.wav]-",     
+        "-V-AO-" : "-[static/speech/double_phoneme/vaa.wav]-",  
+        "-V-AW-" : "-[static/speech/double_phoneme/vaa.wav]-", 
+        "-V-AY-" : "-[static/speech/double_phoneme/vay.wav]-", 
+        "-V-EH-" : "-[static/speech/double_phoneme/veh.wav]-", 
+        "-V-ER-" : "-[static/speech/double_phoneme/ver.wav]-", 
+        "-V-EY-" : "-[static/speech/double_phoneme/vey.wav]-", 
+        "-V-IH-" : "-[static/speech/double_phoneme/vih.wav]-", 
+        "-V-IY-" : "-[static/speech/double_phoneme/vey.wav]-", 
+        "-V-OW-" : "-[static/speech/double_phoneme/vow.wav]-", 
+        "-V-OY-" : "-[static/speech/double_phoneme/voy.wav]-", 
+        "-V-UH-" : "-[static/speech/double_phoneme/vuh.wav]-", 
+        "-V-UW-" : "-[static/speech/double_phoneme/vuw.wav]-", 
 
-        # time log: 9
-        "-V-AA-" : "-[static/speech/double_phoneme/vaa.wav]-", # chopper     
-        "-V-AE-" : "-[static/speech/double_phoneme/vae.wav]-", # chat     
-        "-V-AH-" : "-[static/speech/double_phoneme/vah.wav]-", # chutney    
-        "-V-AO-" : "-[static/speech/double_phoneme/vao.wav]-", # chop 
-        "-V-AW-" : "-[static/speech/double_phoneme/vaw.wav]-", # chow
-        "-V-AY-" : "-[static/speech/double_phoneme/vay.wav]-", # china
-        "-V-EH-" : "-[static/speech/double_phoneme/veh.wav]-", # checkers
-        "-V-ER-" : "-[static/speech/double_phoneme/ver.wav]-", # churn
-        "-V-EY-" : "-[static/speech/double_phoneme/vey.wav]-", # change
-        "-V-IH-" : "-[static/speech/double_phoneme/vih.wav]-", # ching
-        "-V-IY-" : "-[static/speech/double_phoneme/viy.wav]-", # cheese
-        "-V-OW-" : "-[static/speech/double_phoneme/vow.wav]-", # choke
-        "-V-OY-" : "-[static/speech/double_phoneme/voy.wav]-", # choice
-        "-V-UH-" : "-[static/speech/double_phoneme/vuh.wav]-", # chuck
-        "-V-UW-" : "-[static/speech/double_phoneme/vuw.wav]-", # chew
+        "-W-AA-" : "-[static/speech/double_phoneme/waa.wav]-",      
+        "-W-AE-" : "-[static/speech/double_phoneme/wae.wav]-",      
+        "-W-AH-" : "-[static/speech/double_phoneme/waa.wav]-",     
+        "-W-AO-" : "-[static/speech/double_phoneme/waa.wav]-",  
+        "-W-AW-" : "-[static/speech/double_phoneme/waa.wav]-", 
+        "-W-AY-" : "-[static/speech/double_phoneme/way.wav]-", 
+        "-W-EH-" : "-[static/speech/double_phoneme/weh.wav]-", 
+        "-W-ER-" : "-[static/speech/double_phoneme/wer.wav]-", 
+        "-W-EY-" : "-[static/speech/double_phoneme/wey.wav]-", 
+        "-W-IH-" : "-[static/speech/double_phoneme/wih.wav]-", 
+        "-W-IY-" : "-[static/speech/double_phoneme/wey.wav]-", 
+        "-W-OW-" : "-[static/speech/double_phoneme/wow.wav]-", 
+        "-W-OY-" : "-[static/speech/double_phoneme/woy.wav]-", 
+        "-W-UH-" : "-[static/speech/double_phoneme/wuh.wav]-", 
+        "-W-UW-" : "-[static/speech/double_phoneme/wuw.wav]-", 
 
-        # time log: 9
-        "-W-AA-" : "-[static/speech/double_phoneme/waa.wav]-", # chopper     
-        "-W-AE-" : "-[static/speech/double_phoneme/wae.wav]-", # chat     
-        "-W-AH-" : "-[static/speech/double_phoneme/wah.wav]-", # chutney    
-        "-W-AO-" : "-[static/speech/double_phoneme/wao.wav]-", # chop 
-        "-W-AW-" : "-[static/speech/double_phoneme/waw.wav]-", # chow
-        "-W-AY-" : "-[static/speech/double_phoneme/way.wav]-", # china
-        "-W-EH-" : "-[static/speech/double_phoneme/weh.wav]-", # checkers
-        "-W-ER-" : "-[static/speech/double_phoneme/wer.wav]-", # churn
-        "-W-EY-" : "-[static/speech/double_phoneme/wey.wav]-", # change
-        "-W-IH-" : "-[static/speech/double_phoneme/wih.wav]-", # ching
-        "-W-IY-" : "-[static/speech/double_phoneme/wiy.wav]-", # cheese
-        "-W-OW-" : "-[static/speech/double_phoneme/wow.wav]-", # choke
-        "-W-OY-" : "-[static/speech/double_phoneme/woy.wav]-", # choice
-        "-W-UH-" : "-[static/speech/double_phoneme/wuh.wav]-", # chuck
-        "-W-UW-" : "-[static/speech/double_phoneme/wuw.wav]-", # chew
+        "-Y-AA-" : "-[static/speech/double_phoneme/yaa.wav]-",      
+        "-Y-AE-" : "-[static/speech/double_phoneme/yae.wav]-",      
+        "-Y-AH-" : "-[static/speech/double_phoneme/yaa.wav]-",     
+        "-Y-AO-" : "-[static/speech/double_phoneme/yaa.wav]-",  
+        "-Y-AW-" : "-[static/speech/double_phoneme/yaa.wav]-", 
+        "-Y-AY-" : "-[static/speech/double_phoneme/yay.wav]-", 
+        "-Y-EH-" : "-[static/speech/double_phoneme/yeh.wav]-", 
+        "-Y-ER-" : "-[static/speech/double_phoneme/yer.wav]-", 
+        "-Y-EY-" : "-[static/speech/double_phoneme/yey.wav]-", 
+        "-Y-IH-" : "-[static/speech/double_phoneme/yih.wav]-", 
+        "-Y-IY-" : "-[static/speech/double_phoneme/yey.wav]-", 
+        "-Y-OW-" : "-[static/speech/double_phoneme/yow.wav]-", 
+        "-Y-OY-" : "-[static/speech/double_phoneme/yoy.wav]-", 
+        "-Y-UH-" : "-[static/speech/double_phoneme/yuh.wav]-", 
+        "-Y-UW-" : "-[static/speech/double_phoneme/yuw.wav]-", 
 
+        "-Z-AA-" : "-[static/speech/double_phoneme/zaa.wav]-",      
+        "-Z-AE-" : "-[static/speech/double_phoneme/zae.wav]-",      
+        "-Z-AH-" : "-[static/speech/double_phoneme/zaa.wav]-",     
+        "-Z-AO-" : "-[static/speech/double_phoneme/zaa.wav]-",  
+        "-Z-AW-" : "-[static/speech/double_phoneme/zaa.wav]-", 
+        "-Z-AY-" : "-[static/speech/double_phoneme/zay.wav]-", 
+        "-Z-EH-" : "-[static/speech/double_phoneme/zeh.wav]-", 
+        "-Z-ER-" : "-[static/speech/double_phoneme/zer.wav]-", 
+        "-Z-EY-" : "-[static/speech/double_phoneme/zey.wav]-", 
+        "-Z-IH-" : "-[static/speech/double_phoneme/zih.wav]-", 
+        "-Z-IY-" : "-[static/speech/double_phoneme/zey.wav]-", 
+        "-Z-OW-" : "-[static/speech/double_phoneme/zow.wav]-", 
+        "-Z-OY-" : "-[static/speech/double_phoneme/zoy.wav]-", 
+        "-Z-UH-" : "-[static/speech/double_phoneme/zuh.wav]-", 
+        "-Z-UW-" : "-[static/speech/double_phoneme/zuw.wav]-", 
 
-
-        # time log: 9
-        "-Y-AA-" : "-[static/speech/double_phoneme/yaa.wav]-", # chopper     
-        "-Y-AE-" : "-[static/speech/double_phoneme/yae.wav]-", # chat     
-        "-Y-AH-" : "-[static/speech/double_phoneme/yah.wav]-", # chutney    
-        "-Y-AO-" : "-[static/speech/double_phoneme/yao.wav]-", # chop 
-        "-Y-AW-" : "-[static/speech/double_phoneme/yaw.wav]-", # chow
-        "-Y-AY-" : "-[static/speech/double_phoneme/yay.wav]-", # china
-        "-Y-EH-" : "-[static/speech/double_phoneme/yeh.wav]-", # checkers
-        "-Y-ER-" : "-[static/speech/double_phoneme/yer.wav]-", # churn
-        "-Y-EY-" : "-[static/speech/double_phoneme/yey.wav]-", # change
-        "-Y-IH-" : "-[static/speech/double_phoneme/yih.wav]-", # ching
-        "-Y-IY-" : "-[static/speech/double_phoneme/yiy.wav]-", # cheese
-        "-Y-OW-" : "-[static/speech/double_phoneme/yow.wav]-", # choke
-        "-Y-OY-" : "-[static/speech/double_phoneme/yoy.wav]-", # choice
-        "-Y-UH-" : "-[static/speech/double_phoneme/yuh.wav]-", # chuck
-        "-Y-UW-" : "-[static/speech/double_phoneme/yuw.wav]-", # chew
-
-
-
-        # time log: 9
-        "-Z-AA-" : "-[static/speech/double_phoneme/zaa.wav]-", # chopper     
-        "-Z-AE-" : "-[static/speech/double_phoneme/zae.wav]-", # chat     
-        "-Z-AH-" : "-[static/speech/double_phoneme/zah.wav]-", # chutney    
-        "-Z-AO-" : "-[static/speech/double_phoneme/zao.wav]-", # chop 
-        "-Z-AW-" : "-[static/speech/double_phoneme/zaw.wav]-", # chow
-        "-Z-AY-" : "-[static/speech/double_phoneme/zay.wav]-", # china
-        "-Z-EH-" : "-[static/speech/double_phoneme/zeh.wav]-", # checkers
-        "-Z-ER-" : "-[static/speech/double_phoneme/zer.wav]-", # churn
-        "-Z-EY-" : "-[static/speech/double_phoneme/zey.wav]-", # change
-        "-Z-IH-" : "-[static/speech/double_phoneme/zih.wav]-", # ching
-        "-Z-IY-" : "-[static/speech/double_phoneme/ziy.wav]-", # cheese
-        "-Z-OW-" : "-[static/speech/double_phoneme/zow.wav]-", # choke
-        "-Z-OY-" : "-[static/speech/double_phoneme/zoy.wav]-", # choice
-        "-Z-UH-" : "-[static/speech/double_phoneme/zuh.wav]-", # chuck
-        "-Z-UW-" : "-[static/speech/double_phoneme/zuw.wav]-", # chew
-
-
-        # time log: 9
-        "-ZH-AA-" : "-[static/speech/double_phoneme/zhaa.wav]-", # chopper     
-        "-ZH-AE-" : "-[static/speech/double_phoneme/zhae.wav]-", # chat     
-        "-ZH-AH-" : "-[static/speech/double_phoneme/zhah.wav]-", # chutney    
-        "-ZH-AO-" : "-[static/speech/double_phoneme/zhao.wav]-", # chop 
-        "-ZH-AW-" : "-[static/speech/double_phoneme/zhaw.wav]-", # chow
-        "-ZH-AY-" : "-[static/speech/double_phoneme/zhay.wav]-", # china
-        "-ZH-EH-" : "-[static/speech/double_phoneme/zheh.wav]-", # checkers
-        "-ZH-ER-" : "-[static/speech/double_phoneme/zher.wav]-", # churn
-        "-ZH-EY-" : "-[static/speech/double_phoneme/zhey.wav]-", # change
-        "-ZH-IH-" : "-[static/speech/double_phoneme/zhih.wav]-", # ching
-        "-ZH-IY-" : "-[static/speech/double_phoneme/zhiy.wav]-", # cheese
-        "-ZH-OW-" : "-[static/speech/double_phoneme/zhow.wav]-", # choke
-        "-ZH-OY-" : "-[static/speech/double_phoneme/zhoy.wav]-", # choice
-        "-ZH-UH-" : "-[static/speech/double_phoneme/zhuh.wav]-", # chuck
-        "-ZH-UW-" : "-[static/speech/double_phoneme/zhuw.wav]-" # chew     
+        "-ZH-AA-" : "-[static/speech/double_phoneme/zhaa.wav]-",      
+        "-ZH-AE-" : "-[static/speech/double_phoneme/zhae.wav]-",      
+        "-ZH-AH-" : "-[static/speech/double_phoneme/zhaa.wav]-",     
+        "-ZH-AO-" : "-[static/speech/double_phoneme/zhaa.wav]-",  
+        "-ZH-AW-" : "-[static/speech/double_phoneme/zhaa.wav]-", 
+        "-ZH-AY-" : "-[static/speech/double_phoneme/zhay.wav]-", 
+        "-ZH-EH-" : "-[static/speech/double_phoneme/zheh.wav]-", 
+        "-ZH-ER-" : "-[static/speech/double_phoneme/zher.wav]-", 
+        "-ZH-EY-" : "-[static/speech/double_phoneme/zhey.wav]-", 
+        "-ZH-IH-" : "-[static/speech/double_phoneme/zhih.wav]-", 
+        "-ZH-IY-" : "-[static/speech/double_phoneme/zhey.wav]-", 
+        "-ZH-OW-" : "-[static/speech/double_phoneme/zhow.wav]-", 
+        "-ZH-OY-" : "-[static/speech/double_phoneme/zhoy.wav]-", 
+        "-ZH-UH-" : "-[static/speech/double_phoneme/zhuh.wav]-", 
+        "-ZH-UW-" : "-[static/speech/double_phoneme/zhuw.wav]-"      
         }
 
+# vowel -> consonant
+hk_audio_phoneme_combo_endings = {
+        "-AA-B-" : '-AA-[static/speech/double_phoneme/aab.wav]-', # ode
+        "-AE-B-" : '-AE-[static/speech/double_phoneme/aeb.wav]-', # ab
+        "-AH-B-" : '-AH-[static/speech/double_phoneme/aab.wav]-', # ode     
+        "-AO-B-" : '-AO-[static/speech/double_phoneme/aab.wav]-', # ode
+        "-AW-B-" : '-AW-[static/speech/double_phoneme/aab.wav]-', # ode
+        "-AY-B-" : '-AY-[static/speech/double_phoneme/ayb.wav]-', # hide - haaide
+        "-EH-B-" : '-EH-[static/speech/double_phoneme/ehb.wav]-', # ebb
+        "-ER-B-" : '-EH-[static/speech/double_phoneme/erb.wav]-', # ebb - sharp
+        "-EY-B-" : '-EY-[static/speech/double_phoneme/eyb.wav]-', # aid
+        "-IH-B-" : '-IH-[static/speech/double_phoneme/ihb.wav]-', # ing - sharp
+        "-IY-B-" : '-IY-[static/speech/double_phoneme/eyb.wav]-', # aid
+        "-OW-B-" : '-OW-[static/speech/double_phoneme/owb.wav]-', # oat
+        "-OY-B-" : '-OY-[static/speech/double_phoneme/oyb.wav]-', # joy - joiee
+        "-UH-B-" : '-UH-[static/speech/double_phoneme/uhb.wav]-', # bud  
+        "-UW-B-" : '-UW-[static/speech/double_phoneme/uwb.wav]-', # oob
 
-"""
+        "-AA-CH-" : '-AA-[static/speech/double_phoneme/aach.wav]-', 
+        "-AE-CH-" : '-AE-[static/speech/double_phoneme/aech.wav]-', 
+        "-AH-CH-" : '-AH-[static/speech/double_phoneme/aach.wav]-',      
+        "-AO-CH-" : '-AO-[static/speech/double_phoneme/aach.wav]-', 
+        "-AW-CH-" : '-AW-[static/speech/double_phoneme/aach.wav]-', 
+        "-AY-CH-" : '-AY-[static/speech/double_phoneme/aych.wav]-', 
+        "-EH-CH-" : '-EH-[static/speech/double_phoneme/ehch.wav]-', 
+        "-ER-CH-" : '-EH-[static/speech/double_phoneme/erch.wav]-',  
+        "-EY-CH-" : '-EY-[static/speech/double_phoneme/eych.wav]-', 
+        "-IH-CH-" : '-IH-[static/speech/double_phoneme/ihch.wav]-', 
+        "-IY-CH-" : '-IY-[static/speech/double_phoneme/eych.wav]-', 
+        "-OW-CH-" : '-OW-[static/speech/double_phoneme/owch.wav]-', 
+        "-OY-CH-" : '-OY-[static/speech/double_phoneme/oych.wav]-', 
+        "-UH-CH-" : '-UH-[static/speech/double_phoneme/uhch.wav]-',   
+        "-UW-CH-" : '-UW-[static/speech/double_phoneme/uwch.wav]-',
+
+        "-AA-D-" : '-AA-[static/speech/double_phoneme/aad.wav]-', 
+        "-AE-D-" : '-AE-[static/speech/double_phoneme/aed.wav]-', 
+        "-AH-D-" : '-AH-[static/speech/double_phoneme/aad.wav]-',      
+        "-AO-D-" : '-AO-[static/speech/double_phoneme/aad.wav]-', 
+        "-AW-D-" : '-AW-[static/speech/double_phoneme/aad.wav]-', 
+        "-AY-D-" : '-AY-[static/speech/double_phoneme/ayd.wav]-', 
+        "-EH-D-" : '-EH-[static/speech/double_phoneme/ehd.wav]-', 
+        "-ER-D-" : '-EH-[static/speech/double_phoneme/erd.wav]-',  
+        "-EY-D-" : '-EY-[static/speech/double_phoneme/eyd.wav]-', 
+        "-IH-D-" : '-IH-[static/speech/double_phoneme/ihd.wav]-', 
+        "-IY-D-" : '-IY-[static/speech/double_phoneme/eyd.wav]-', 
+        "-OW-D-" : '-OW-[static/speech/double_phoneme/owd.wav]-', 
+        "-OY-D-" : '-OY-[static/speech/double_phoneme/oyd.wav]-', 
+        "-UH-D-" : '-UH-[static/speech/double_phoneme/uhd.wav]-',   
+        "-UW-D-" : '-UW-[static/speech/double_phoneme/uwd.wav]-',
+
+        "-AA-F-" : '-AA-[static/speech/double_phoneme/aaf.wav]-', 
+        "-AE-F-" : '-AE-[static/speech/double_phoneme/aef.wav]-', 
+        "-AH-F-" : '-AH-[static/speech/double_phoneme/aaf.wav]-',      
+        "-AO-F-" : '-AO-[static/speech/double_phoneme/aaf.wav]-', 
+        "-AW-F-" : '-AW-[static/speech/double_phoneme/aaf.wav]-', 
+        "-AY-F-" : '-AY-[static/speech/double_phoneme/ayf.wav]-', 
+        "-EH-F-" : '-EH-[static/speech/double_phoneme/ehf.wav]-', 
+        "-ER-F-" : '-EH-[static/speech/double_phoneme/erf.wav]-',  
+        "-EY-F-" : '-EY-[static/speech/double_phoneme/eyf.wav]-', 
+        "-IH-F-" : '-IH-[static/speech/double_phoneme/ihf.wav]-', 
+        "-IY-F-" : '-IY-[static/speech/double_phoneme/eyf.wav]-', 
+        "-OW-F-" : '-OW-[static/speech/double_phoneme/owf.wav]-', 
+        "-OY-F-" : '-OY-[static/speech/double_phoneme/oyf.wav]-', 
+        "-UH-F-" : '-UH-[static/speech/double_phoneme/uhf.wav]-',   
+        "-UW-F-" : '-UW-[static/speech/double_phoneme/uwf.wav]-',
+
+        "-AA-G-" : '-AA-[static/speech/double_phoneme/aag.wav]-', 
+        "-AE-G-" : '-AE-[static/speech/double_phoneme/aeg.wav]-', 
+        "-AH-G-" : '-AH-[static/speech/double_phoneme/aag.wav]-',      
+        "-AO-G-" : '-AO-[static/speech/double_phoneme/aag.wav]-', 
+        "-AW-G-" : '-AW-[static/speech/double_phoneme/aag.wav]-', 
+        "-AY-G-" : '-AY-[static/speech/double_phoneme/ayg.wav]-', 
+        "-EH-G-" : '-EH-[static/speech/double_phoneme/ehg.wav]-', 
+        "-ER-G-" : '-EH-[static/speech/double_phoneme/erg.wav]-',  
+        "-EY-G-" : '-EY-[static/speech/double_phoneme/eyg.wav]-', 
+        "-IH-G-" : '-IH-[static/speech/double_phoneme/ihg.wav]-', 
+        "-IY-G-" : '-IY-[static/speech/double_phoneme/eyg.wav]-', 
+        "-OW-G-" : '-OW-[static/speech/double_phoneme/owg.wav]-', 
+        "-OY-G-" : '-OY-[static/speech/double_phoneme/oyg.wav]-', 
+        "-UH-G-" : '-UH-[static/speech/double_phoneme/uhg.wav]-',   
+        "-UW-G-" : '-UW-[static/speech/double_phoneme/uwg.wav]-',
+
+        "-AA-K-" : '-AA-[static/speech/double_phoneme/aak.wav]-', 
+        "-AE-K-" : '-AE-[static/speech/double_phoneme/aek.wav]-', 
+        "-AH-K-" : '-AH-[static/speech/double_phoneme/aak.wav]-',      
+        "-AO-K-" : '-AO-[static/speech/double_phoneme/aak.wav]-', 
+        "-AW-K-" : '-AW-[static/speech/double_phoneme/aak.wav]-', 
+        "-AY-K-" : '-AY-[static/speech/double_phoneme/ayk.wav]-', 
+        "-EH-K-" : '-EH-[static/speech/double_phoneme/ehk.wav]-', 
+        "-ER-K-" : '-EH-[static/speech/double_phoneme/erk.wav]-',  
+        "-EY-K-" : '-EY-[static/speech/double_phoneme/eyk.wav]-', 
+        "-IH-K-" : '-IH-[static/speech/double_phoneme/ihk.wav]-', 
+        "-IY-K-" : '-IY-[static/speech/double_phoneme/eyk.wav]-', 
+        "-OW-K-" : '-OW-[static/speech/double_phoneme/owk.wav]-', 
+        "-OY-K-" : '-OY-[static/speech/double_phoneme/oyk.wav]-', 
+        "-UH-K-" : '-UH-[static/speech/double_phoneme/uhk.wav]-',   
+        "-UW-K-" : '-UW-[static/speech/double_phoneme/uwk.wav]-',
+
+        "-AA-L-" : '-AA-[static/speech/double_phoneme/aal.wav]-', 
+        "-AE-L-" : '-AE-[static/speech/double_phoneme/ael.wav]-', 
+        "-AH-L-" : '-AH-[static/speech/double_phoneme/aal.wav]-',      
+        "-AO-L-" : '-AO-[static/speech/double_phoneme/aal.wav]-', 
+        "-AW-L-" : '-AW-[static/speech/double_phoneme/aal.wav]-', 
+        "-AY-L-" : '-AY-[static/speech/double_phoneme/ayl.wav]-', 
+        "-EH-L-" : '-EH-[static/speech/double_phoneme/ehl.wav]-', 
+        "-ER-L-" : '-EH-[static/speech/double_phoneme/erl.wav]-',  
+        "-EY-L-" : '-EY-[static/speech/double_phoneme/eyl.wav]-', 
+        "-IH-L-" : '-IH-[static/speech/double_phoneme/ihl.wav]-', 
+        "-IY-L-" : '-IY-[static/speech/double_phoneme/eyl.wav]-', 
+        "-OW-L-" : '-OW-[static/speech/double_phoneme/owl.wav]-', 
+        "-OY-L-" : '-OY-[static/speech/double_phoneme/oyl.wav]-', 
+        "-UH-L-" : '-UH-[static/speech/double_phoneme/uhl.wav]-',   
+        "-UW-L-" : '-UW-[static/speech/double_phoneme/uwl.wav]-',
+
+        "-AA-M-" : '-AA-[static/speech/double_phoneme/aam.wav]-', 
+        "-AE-M-" : '-AE-[static/speech/double_phoneme/aem.wav]-', 
+        "-AH-M-" : '-AH-[static/speech/double_phoneme/aam.wav]-',      
+        "-AO-M-" : '-AO-[static/speech/double_phoneme/aam.wav]-', 
+        "-AW-M-" : '-AW-[static/speech/double_phoneme/aam.wav]-', 
+        "-AY-M-" : '-AY-[static/speech/double_phoneme/aym.wav]-', 
+        "-EH-M-" : '-EH-[static/speech/double_phoneme/ehm.wav]-', 
+        "-ER-M-" : '-EH-[static/speech/double_phoneme/erm.wav]-',  
+        "-EY-M-" : '-EY-[static/speech/double_phoneme/eym.wav]-', 
+        "-IH-M-" : '-IH-[static/speech/double_phoneme/ihm.wav]-', 
+        "-IY-M-" : '-IY-[static/speech/double_phoneme/eym.wav]-', 
+        "-OW-M-" : '-OW-[static/speech/double_phoneme/owm.wav]-', 
+        "-OY-M-" : '-OY-[static/speech/double_phoneme/oym.wav]-', 
+        "-UH-M-" : '-UH-[static/speech/double_phoneme/uhm.wav]-',   
+        "-UW-M-" : '-UW-[static/speech/double_phoneme/uwm.wav]-',
+
+        "-AA-NG-" : '-AA-[static/speech/double_phoneme/aang.wav]-', 
+        "-AE-NG-" : '-AE-[static/speech/double_phoneme/aeng.wav]-', 
+        "-AH-NG-" : '-AH-[static/speech/double_phoneme/aang.wav]-',      
+        "-AO-NG-" : '-AO-[static/speech/double_phoneme/aang.wav]-', 
+        "-AW-NG-" : '-AW-[static/speech/double_phoneme/aang.wav]-', 
+        "-AY-NG-" : '-AY-[static/speech/double_phoneme/ayng.wav]-', 
+        "-EH-NG-" : '-EH-[static/speech/double_phoneme/ehng.wav]-', 
+        "-ER-NG-" : '-EH-[static/speech/double_phoneme/erng.wav]-',  
+        "-EY-NG-" : '-EY-[static/speech/double_phoneme/eyng.wav]-', 
+        "-IH-NG-" : '-IH-[static/speech/double_phoneme/ihng.wav]-', 
+        "-IY-NG-" : '-IY-[static/speech/double_phoneme/eyng.wav]-', 
+        "-OW-NG-" : '-OW-[static/speech/double_phoneme/owng.wav]-', 
+        "-OY-NG-" : '-OY-[static/speech/double_phoneme/oyng.wav]-', 
+        "-UH-NG-" : '-UH-[static/speech/double_phoneme/uhng.wav]-',   
+        "-UW-NG-" : '-UW-[static/speech/double_phoneme/uwng.wav]-',
+
+        "-AA-N-" : '-AA-[static/speech/double_phoneme/aan.wav]-',  
+        "-AE-N-" : '-AE-[static/speech/double_phoneme/aen.wav]-', 
+        "-AH-N-" : '-AH-[static/speech/double_phoneme/aan.wav]-',      
+        "-AO-N-" : '-AO-[static/speech/double_phoneme/aan.wav]-', 
+        "-AW-N-" : '-AW-[static/speech/double_phoneme/aan.wav]-', 
+        "-AY-N-" : '-AY-[static/speech/double_phoneme/ayn.wav]-', 
+        "-EH-N-" : '-EH-[static/speech/double_phoneme/ehn.wav]-', 
+        "-ER-N-" : '-EH-[static/speech/double_phoneme/ern.wav]-',  
+        "-EY-N-" : '-EY-[static/speech/double_phoneme/eyn.wav]-', 
+        "-IH-N-" : '-IH-[static/speech/double_phoneme/ihn.wav]-', 
+        "-IY-N-" : '-IY-[static/speech/double_phoneme/eyn.wav]-', 
+        "-OW-N-" : '-OW-[static/speech/double_phoneme/own.wav]-', 
+        "-OY-N-" : '-OY-[static/speech/double_phoneme/oyn.wav]-', 
+        "-UH-N-" : '-UH-[static/speech/double_phoneme/uhn.wav]-',   
+        "-UW-N-" : '-UW-[static/speech/double_phoneme/uwn.wav]-',
+
+        "-AA-P-" : '-AA-[static/speech/double_phoneme/aap.wav]-',  
+        "-AE-P-" : '-AE-[static/speech/double_phoneme/aep.wav]-', 
+        "-AH-P-" : '-AH-[static/speech/double_phoneme/aap.wav]-',      
+        "-AO-P-" : '-AO-[static/speech/double_phoneme/aap.wav]-', 
+        "-AW-P-" : '-AW-[static/speech/double_phoneme/aap.wav]-', 
+        "-AY-P-" : '-AY-[static/speech/double_phoneme/ayp.wav]-', 
+        "-EH-P-" : '-EH-[static/speech/double_phoneme/ehp.wav]-', 
+        "-ER-P-" : '-EH-[static/speech/double_phoneme/erp.wav]-',  
+        "-EY-P-" : '-EY-[static/speech/double_phoneme/eyp.wav]-', 
+        "-IH-P-" : '-IH-[static/speech/double_phoneme/ihp.wav]-', 
+        "-IY-P-" : '-IY-[static/speech/double_phoneme/eyp.wav]-', 
+        "-OW-P-" : '-OW-[static/speech/double_phoneme/owp.wav]-', 
+        "-OY-P-" : '-OY-[static/speech/double_phoneme/oyp.wav]-', 
+        "-UH-P-" : '-UH-[static/speech/double_phoneme/uhp.wav]-',   
+        "-UW-P-" : '-UW-[static/speech/double_phoneme/uwp.wav]-',
+
+        "-AA-R-" : '-AA-[static/speech/double_phoneme/aar.wav]-',  
+        "-AE-R-" : '-AE-[static/speech/double_phoneme/aer.wav]-', 
+        "-AH-R-" : '-AH-[static/speech/double_phoneme/aar.wav]-',      
+        "-AO-R-" : '-AO-[static/speech/double_phoneme/aar.wav]-', 
+        "-AW-R-" : '-AW-[static/speech/double_phoneme/aar.wav]-', 
+        "-AY-R-" : '-AY-[static/speech/double_phoneme/ayr.wav]-', 
+        "-EH-R-" : '-EH-[static/speech/double_phoneme/ehr.wav]-', 
+        "-ER-R-" : '-EH-[static/speech/double_phoneme/eyr.wav]-',  
+        "-EY-R-" : '-EY-[static/speech/double_phoneme/eyr.wav]-', 
+        "-IH-R-" : '-IH-[static/speech/double_phoneme/ihr.wav]-', 
+        "-IY-R-" : '-IY-[static/speech/double_phoneme/eyr.wav]-', 
+        "-OW-R-" : '-OW-[static/speech/double_phoneme/owr.wav]-', 
+        "-OY-R-" : '-OY-[static/speech/double_phoneme/oyr.wav]-', 
+        "-UH-R-" : '-UH-[static/speech/double_phoneme/uhr.wav]-',   
+        "-UW-R-" : '-UW-[static/speech/double_phoneme/uwr.wav]-',
+
+        "-AA-S-" : '-AA-[static/speech/double_phoneme/aas.wav]-',  
+        "-AE-S-" : '-AE-[static/speech/double_phoneme/aes.wav]-', 
+        "-AH-S-" : '-AH-[static/speech/double_phoneme/aas.wav]-',      
+        "-AO-S-" : '-AO-[static/speech/double_phoneme/aas.wav]-', 
+        "-AW-S-" : '-AW-[static/speech/double_phoneme/aas1.wav]-', 
+        "-AY-S-" : '-AY-[static/speech/double_phoneme/ays.wav]-', 
+        "-EH-S-" : '-EH-[static/speech/double_phoneme/ehs.wav]-', 
+        "-ER-S-" : '-EH-[static/speech/double_phoneme/ers.wav]-',  
+        "-EY-S-" : '-EY-[static/speech/double_phoneme/eys.wav]-', 
+        "-IH-S-" : '-IH-[static/speech/double_phoneme/ihs.wav]-', 
+        "-IY-S-" : '-IY-[static/speech/double_phoneme/eys.wav]-', 
+        "-OW-S-" : '-OW-[static/speech/double_phoneme/ows.wav]-', 
+        "-OY-S-" : '-OY-[static/speech/double_phoneme/oys.wav]-', 
+        "-UH-S-" : '-UH-[static/speech/double_phoneme/uhs.wav]-',   
+        "-UW-S-" : '-UW-[static/speech/double_phoneme/uws.wav]-',
+
+        "-AA-SH-" : '-AA-[static/speech/double_phoneme/aash.wav]-',  
+        "-AE-SH-" : '-AE-[static/speech/double_phoneme/aesh.wav]-', 
+        "-AH-SH-" : '-AH-[static/speech/double_phoneme/aash.wav]-',      
+        "-AO-SH-" : '-AO-[static/speech/double_phoneme/aash.wav]-', 
+        "-AW-SH-" : '-AW-[static/speech/double_phoneme/aash.wav]-', 
+        "-AY-SH-" : '-AY-[static/speech/double_phoneme/aysh.wav]-', 
+        "-EH-SH-" : '-EH-[static/speech/double_phoneme/ehsh.wav]-', 
+        "-ER-SH-" : '-EH-[static/speech/double_phoneme/ersh.wav]-',  
+        "-EY-SH-" : '-EY-[static/speech/double_phoneme/eysh.wav]-', 
+        "-IH-SH-" : '-IH-[static/speech/double_phoneme/ihsh.wav]-', 
+        "-IY-SH-" : '-IY-[static/speech/double_phoneme/eysh.wav]-', 
+        "-OW-SH-" : '-OW-[static/speech/double_phoneme/owsh.wav]-', 
+        "-OY-SH-" : '-OY-[static/speech/double_phoneme/oysh.wav]-', 
+        "-UH-SH-" : '-UH-[static/speech/double_phoneme/uhsh.wav]-',   
+        "-UW-SH-" : '-UW-[static/speech/double_phoneme/uwsh.wav]-',
+
+        "-AA-T-" : '-AA-[static/speech/double_phoneme/aat.wav]-',  
+        "-AE-T-" : '-AE-[static/speech/double_phoneme/aet.wav]-', 
+        "-AH-T-" : '-AH-[static/speech/double_phoneme/aat.wav]-',      
+        "-AO-T-" : '-AO-[static/speech/double_phoneme/aat.wav]-', 
+        "-AW-T-" : '-AW-[static/speech/double_phoneme/aat.wav]-', 
+        "-AY-T-" : '-AY-[static/speech/double_phoneme/ayt.wav]-', 
+        "-EH-T-" : '-EH-[static/speech/double_phoneme/eht.wav]-', 
+        "-ER-T-" : '-EH-[static/speech/double_phoneme/ert.wav]-',  
+        "-EY-T-" : '-EY-[static/speech/double_phoneme/eyt.wav]-', 
+        "-IH-T-" : '-IH-[static/speech/double_phoneme/iht.wav]-', 
+        "-IY-T-" : '-IY-[static/speech/double_phoneme/eyt.wav]-', 
+        "-OW-T-" : '-OW-[static/speech/double_phoneme/owt.wav]-', 
+        "-OY-T-" : '-OY-[static/speech/double_phoneme/oyt.wav]-', 
+        "-UH-T-" : '-UH-[static/speech/double_phoneme/uht.wav]-',   
+        "-UW-T-" : '-UW-[static/speech/double_phoneme/uwt.wav]-',
+
+        "-AA-TH-" : '-AA-[static/speech/double_phoneme/aath.wav]-',  
+        "-AE-TH-" : '-AE-[static/speech/double_phoneme/aeth.wav]-', 
+        "-AH-TH-" : '-AH-[static/speech/double_phoneme/aath.wav]-',      
+        "-AO-TH-" : '-AO-[static/speech/double_phoneme/aath.wav]-', 
+        "-AW-TH-" : '-AW-[static/speech/double_phoneme/aath.wav]-', 
+        "-AY-TH-" : '-AY-[static/speech/double_phoneme/ayth.wav]-', 
+        "-EH-TH-" : '-EH-[static/speech/double_phoneme/ehth.wav]-', 
+        "-ER-TH-" : '-EH-[static/speech/double_phoneme/erth.wav]-',  
+        "-EY-TH-" : '-EY-[static/speech/double_phoneme/eyth.wav]-', 
+        "-IH-TH-" : '-IH-[static/speech/double_phoneme/ihth.wav]-', 
+        "-IY-TH-" : '-IY-[static/speech/double_phoneme/eyth.wav]-', 
+        "-OW-TH-" : '-OW-[static/speech/double_phoneme/owth.wav]-', 
+        "-OY-TH-" : '-OY-[static/speech/double_phoneme/oyth.wav]-', 
+        "-UH-TH-" : '-UH-[static/speech/double_phoneme/uhth.wav]-',   
+        "-UW-TH-" : '-UW-[static/speech/double_phoneme/uwth.wav]-',
+
+        "-AA-V-" : '-AA-[static/speech/double_phoneme/aav.wav]-',  
+        "-AE-V-" : '-AE-[static/speech/double_phoneme/aev.wav]-', 
+        "-AH-V-" : '-AH-[static/speech/double_phoneme/aav.wav]-',      
+        "-AO-V-" : '-AO-[static/speech/double_phoneme/aav.wav]-', 
+        "-AW-V-" : '-AW-[static/speech/double_phoneme/aav.wav]-', 
+        "-AY-V-" : '-AY-[static/speech/double_phoneme/ayv.wav]-', 
+        "-EH-V-" : '-EH-[static/speech/double_phoneme/ehv.wav]-', 
+        "-ER-V-" : '-EH-[static/speech/double_phoneme/erv.wav]-',  
+        "-EY-V-" : '-EY-[static/speech/double_phoneme/eyv.wav]-', 
+        "-IH-V-" : '-IH-[static/speech/double_phoneme/ihv.wav]-', 
+        "-IY-V-" : '-IY-[static/speech/double_phoneme/eyv.wav]-', 
+        "-OW-V-" : '-OW-[static/speech/double_phoneme/owv.wav]-', 
+        "-OY-V-" : '-OY-[static/speech/double_phoneme/oyv.wav]-', 
+        "-UH-V-" : '-UH-[static/speech/double_phoneme/uhv.wav]-',   
+        "-UW-V-" : '-UW-[static/speech/double_phoneme/uwv.wav]-',
+
+        "-AA-Z-" : '-AA-[static/speech/double_phoneme/aaz.wav]-',  
+        "-AE-Z-" : '-AE-[static/speech/double_phoneme/aez.wav]-', 
+        "-AH-Z-" : '-AH-[static/speech/double_phoneme/aaz.wav]-',      
+        "-AO-Z-" : '-AO-[static/speech/double_phoneme/aaz.wav]-', 
+        "-AW-Z-" : '-AW-[static/speech/double_phoneme/aaz.wav]-', 
+        "-AY-Z-" : '-AY-[static/speech/double_phoneme/ayz.wav]-', 
+        "-EH-Z-" : '-EH-[static/speech/double_phoneme/ehz.wav]-', 
+        "-ER-Z-" : '-EH-[static/speech/double_phoneme/erz.wav]-',  
+        "-EY-Z-" : '-EY-[static/speech/double_phoneme/eyz.wav]-', 
+        "-IH-Z-" : '-IH-[static/speech/double_phoneme/ihz.wav]-', 
+        "-IY-Z-" : '-IY-[static/speech/double_phoneme/eyz.wav]-', 
+        "-OW-Z-" : '-OW-[static/speech/double_phoneme/owz.wav]-', 
+        "-OY-Z-" : '-OY-[static/speech/double_phoneme/oyz.wav]-', 
+        "-UH-Z-" : '-UH-[static/speech/double_phoneme/uhz.wav]-',   
+        "-UW-Z-" : '-UW-[static/speech/double_phoneme/uwz.wav]-',
+
+        "-AA-ZH-" : '-AA-[static/speech/double_phoneme/aazh.wav]-',  
+        "-AE-ZH-" : '-AE-[static/speech/double_phoneme/aezh.wav]-', 
+        "-AH-ZH-" : '-AH-[static/speech/double_phoneme/aazh.wav]-',      
+        "-AO-ZH-" : '-AO-[static/speech/double_phoneme/aazh.wav]-', 
+        "-AW-ZH-" : '-AW-[static/speech/double_phoneme/aazh.wav]-', 
+        "-AY-ZH-" : '-AY-[static/speech/double_phoneme/ayzh.wav]-', 
+        "-EH-ZH-" : '-EH-[static/speech/double_phoneme/ehzh.wav]-', 
+        "-ER-ZH-" : '-EH-[static/speech/double_phoneme/erzh.wav]-',  
+        "-EY-ZH-" : '-EY-[static/speech/double_phoneme/eyzh.wav]-', 
+        "-IH-ZH-" : '-IH-[static/speech/double_phoneme/ihzh.wav]-', 
+        "-IY-ZH-" : '-IY-[static/speech/double_phoneme/eyzh.wav]-', 
+        "-OW-ZH-" : '-OW-[static/speech/double_phoneme/owzh.wav]-', 
+        "-OY-ZH-" : '-OY-[static/speech/double_phoneme/oyzh.wav]-', 
+        "-UH-ZH-" : '-UH-[static/speech/double_phoneme/uhzh.wav]-',   
+        "-UW-ZH-" : '-UW-[static/speech/double_phoneme/uwzh.wav]-'
+        }
