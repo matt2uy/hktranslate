@@ -83,7 +83,7 @@ def add_entry():
           for word in raw_english:
             syllable = phoneme_dict[word][0] # there should be a counter somewhere for each phonemic version
             syllable = '-'.join(syllable)
-            text = text + syllable + "- "
+            text = text + syllable + "- -"
 
           text = "-" + text
           return text
@@ -105,7 +105,7 @@ def add_entry():
                 input_text = re.sub(phoneme, separate_words[phoneme], input_text)
             print "STAGE ZERO (separate words):"
             print input_text
-
+            
             # sub in phoneme combo endings first
             for phoneme in hk_audio_phoneme_combo_endings.keys():
                 input_text = re.sub(phoneme, hk_audio_phoneme_combo_endings[phoneme], input_text)
@@ -121,7 +121,7 @@ def add_entry():
             # sub in individual phonemes last
             for phoneme in hk_audio_solo_phonemes.keys():
                 input_text = re.sub(phoneme, hk_audio_solo_phonemes[phoneme], input_text)
-
+            
             print "STAGE THREE (indiv.):"
             print "audio file formatted: ", input_text
             return input_text

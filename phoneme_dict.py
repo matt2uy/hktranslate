@@ -115,7 +115,6 @@ separate_words = {
 
 # consonant -> vowel
 hk_audio_phoneme_combo_beginnings = {
-        
         "-B-AA-" : "-[static/speech/double_phoneme/baa.wav]-", # bow
         "-B-AE-" : "-[static/speech/double_phoneme/bae.wav]-", # bat
         "-B-AH-" : "-[static/speech/double_phoneme/baa.wav]-", # bow    
@@ -212,21 +211,21 @@ hk_audio_phoneme_combo_beginnings = {
         "-G-UH-" : "-[static/speech/double_phoneme/guh.wav]-", 
         "-G-UW-" : "-[static/speech/double_phoneme/guw.wav]-",
 
-        "-HH-AA-" : "-[static/speech/double_phoneme/haa.wav]-",      
-        "-HH-AE-" : "-[static/speech/double_phoneme/hae.wav]-",    
-        "-HH-AH-" : "-[static/speech/double_phoneme/haa.wav]-",    
-        "-HH-AO-" : "-[static/speech/double_phoneme/haa.wav]-",
-        "-HH-AW-" : "-[static/speech/double_phoneme/haa.wav]-",
-        "-HH-AY-" : "-[static/speech/double_phoneme/hay.wav]-",
-        "-HH-EH-" : "-[static/speech/double_phoneme/heh.wav]-",
-        "-HH-ER-" : "-[static/speech/double_phoneme/her.wav]-", 
-        "-HH-EY-" : "-[static/speech/double_phoneme/hey.wav]-",
-        "-HH-IH-" : "-[static/speech/double_phoneme/hih.wav]-", 
-        "-HH-IY-" : "-[static/speech/double_phoneme/hey.wav]-",
-        "-HH-OW-" : "-[static/speech/double_phoneme/how.wav]-",
-        "-HH-OY-" : "-[static/speech/double_phoneme/hoy.wav]-",
-        "-HH-UH-" : "-[static/speech/double_phoneme/huh.wav]-",
-        "-HH-UW-" : "-[static/speech/double_phoneme/huw.wav]-", 
+        "-HH-AA-" : "-[static/speech/double_phoneme/hhaa.wav]-",      
+        "-HH-AE-" : "-[static/speech/double_phoneme/hhae.wav]-",    
+        "-HH-AH-" : "-[static/speech/double_phoneme/hhaa.wav]-",    
+        "-HH-AO-" : "-[static/speech/double_phoneme/hhaa.wav]-",
+        "-HH-AW-" : "-[static/speech/double_phoneme/hhaa.wav]-",
+        "-HH-AY-" : "-[static/speech/double_phoneme/hhay.wav]-",
+        "-HH-EH-" : "-[static/speech/double_phoneme/hheh.wav]-",
+        "-HH-ER-" : "-[static/speech/double_phoneme/hher.wav]-", 
+        "-HH-EY-" : "-[static/speech/double_phoneme/hhey.wav]-",
+        "-HH-IH-" : "-[static/speech/double_phoneme/hhih.wav]-", 
+        "-HH-IY-" : "-[static/speech/double_phoneme/hhey.wav]-",
+        "-HH-OW-" : "-[static/speech/double_phoneme/hhow.wav]-",
+        "-HH-OY-" : "-[static/speech/double_phoneme/hhoy.wav]-",
+        "-HH-UH-" : "-[static/speech/double_phoneme/hhuh.wav]-",
+        "-HH-UW-" : "-[static/speech/double_phoneme/hhuw.wav]-", 
 
         "-JH-AA-" : "-[static/speech/double_phoneme/jaa.wav]-",
         "-JH-AE-" : "-[static/speech/double_phoneme/jae.wav]-", 
@@ -396,7 +395,6 @@ hk_audio_phoneme_combo_beginnings = {
         "-TH-AY-" : "-[static/speech/double_phoneme/thay.wav]-", 
         "-TH-EH-" : "-[static/speech/double_phoneme/theh.wav]-", 
         "-TH-ER-" : "-[static/speech/double_phoneme/ther.wav]-", 
-        "-TH-EY-" : "-[static/speech/double_phoneme/they.wav]-", 
         "-TH-IH-" : "-[static/speech/double_phoneme/thih.wav]-", 
         "-TH-IY-" : "-[static/speech/double_phoneme/they.wav]-", 
         "-TH-OW-" : "-[static/speech/double_phoneme/thow.wav]-", 
@@ -599,11 +597,11 @@ hk_audio_phoneme_combo_endings = {
         "-UH-L-" : '-UH-[static/speech/double_phoneme/uhl.wav]-',   
         "-UW-L-" : '-UW-[static/speech/double_phoneme/uwl.wav]-',
 
-        "-AA-M-" : '-AA-[static/speech/double_phoneme/aam.wav]-', 
+        "-AA-M-" : '-AA-[static/speech/double_phoneme/owm.wav]-', 
         "-AE-M-" : '-AE-[static/speech/double_phoneme/aem.wav]-', 
-        "-AH-M-" : '-AH-[static/speech/double_phoneme/aam.wav]-',      
-        "-AO-M-" : '-AO-[static/speech/double_phoneme/aam.wav]-', 
-        "-AW-M-" : '-AW-[static/speech/double_phoneme/aam.wav]-', 
+        "-AH-M-" : '-AH-[static/speech/double_phoneme/owm.wav]-',      
+        "-AO-M-" : '-AO-[static/speech/double_phoneme/owm.wav]-', 
+        "-AW-M-" : '-AW-[static/speech/double_phoneme/owm.wav]-', 
         "-AY-M-" : '-AY-[static/speech/double_phoneme/aym.wav]-', 
         "-EH-M-" : '-EH-[static/speech/double_phoneme/ehm.wav]-', 
         "-ER-M-" : '-EH-[static/speech/double_phoneme/erm.wav]-',  
