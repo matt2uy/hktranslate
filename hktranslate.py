@@ -231,14 +231,14 @@ def add_entry():
         input_text = format_text_2(input_text)
         input_text = text_to_phoneme_filename(input_text)
         input_text = remove_words_without_audio(input_text)
-        wavlist = filenames_to_list(input_text)
-        audiofile = filename_list_to_audio_file_list(wavlist)
-        sentence = combine_audio_file_list(audiofile)
-        save_audio_file()      
+        #wavlist = filenames_to_list(input_text)
+        #audiofile = filename_list_to_audio_file_list(wavlist)
+        #sentence = combine_audio_file_list(audiofile)
+        #save_audio_file()      
     
     raw_english = get_text()
     accented_english = add_accent(raw_english)
-    text_to_speech(raw_english) # updates audio_processed.wav
+    #text_to_speech(raw_english) # updates audio_processed.wav
 
     return render_template('translate.html', word=accented_english, audio_file='audio_processed.wav')
 
